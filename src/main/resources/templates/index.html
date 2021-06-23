@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolsa Calendário</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <div class="container">
+    <!-- formulario de cadastro -->
+        <div class="form">
+            <form class="formulario" action="" method="post">
+                <label for="Nome"></label>
+                <input type="text" id="Nome" name="nome" placeholder="Nome"> 
+
+                <label for="Senha"></label>
+                <input type="password" id="Senha" name="senha" placeholder="Senha"> 
+
+                <label for="Email"></label>
+                <input type="email" id="Email" name="email" placeholder="Email">
+    
+                <button type="submit" class="btn">Cadastrar</button>
+            </form>
+        </div>
+
+        <div class="btn">
+            <button>+</button>
+        </div>
+        <div class="calendar">
+            <div class="month">
+                <i class="fas fa-angle-left prev"><</i>
+                <div class="date">
+                <h1></h1>
+                <p>Terça-feira, 15 de junho de 2021</p>
+            </div>
+            <i class="fas fa-angle-right next">></i>
+            </div>
+            <div class="weekdays">
+                <div>Dom</div>
+                <div>Seg</div>
+                <div>Ter</div>
+                <div>Qua</div>
+                <div>Qui</div>
+                <div>Sex</div>
+                <div>Sáb</div>
+            </div>
+            <div class="days">
+            </div>
+<<<<<<< HEAD
+        </div>
+=======
+        </div>   
+        
+>>>>>>> dev
+    </div>
+
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>
