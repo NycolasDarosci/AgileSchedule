@@ -2,7 +2,6 @@ package br.com.agileschedule.Controller;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -53,10 +51,12 @@ public class homeController {
 		try {
 			Calendario calen = calenForm.toForm(calendarioR);
 			URI uri = builder.path("Calendario/{id}").buildAndExpand(calen.getId()).toUri();
-			return ResponseEntity.created(uri).body(new CalendarioDto().EntidDto(calen));
+			return ResponseEntity.created(uri).body(convert.calenDto(calen));
 		} catch (DataIntegrityViolationException SQL) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Não Foi Possivel Adicionar ao Calendario");
 		}
+
+		// new CalendarioDto().EntidDto(calen)
 	}
 
 	// !!!! testar o método !!!!

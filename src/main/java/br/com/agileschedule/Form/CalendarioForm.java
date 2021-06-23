@@ -5,6 +5,7 @@ import java.time.LocalTime;
 
 import javax.validation.constraints.NotNull;
 
+import br.com.agileschedule.Entity.Calendario;
 import br.com.agileschedule.Repository.CalendarioRepository;
 
 public class CalendarioForm {
@@ -58,8 +59,9 @@ public class CalendarioForm {
 		this.hrFinal = hrFinal;
 	}
 
-	public CalendarioForm toForm(CalendarioRepository calendarioR) {
-		return null;
+	public Calendario toForm(CalendarioRepository calendarioR) {
+		Calendario calen = new Calendario();
+		return calendarioR.save(calen);
 	}
 
 }

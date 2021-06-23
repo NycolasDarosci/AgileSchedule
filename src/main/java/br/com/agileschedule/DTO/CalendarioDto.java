@@ -51,13 +51,31 @@ public class CalendarioDto {
 		return descricao;
 	}
 
-	public CalendarioDto EntidDto(Calendario calen) {
-		this.descricao = calen.getDescricao();
-		this.diaInicial = calen.getDiaInicial();
-		this.diaFinal = calen.getDiaFinal();
-		this.hrInicial = calen.getHrInicial();
-		this.hrFinal = calen.getHrFinal();
-		return EntidDto(calen);
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
+
+	public void setDiaInicial(LocalDate diaInicial) {
+		this.diaInicial = diaInicial;
+	}
+
+	public void setDiaFinal(LocalDate diaFinal) {
+		this.diaFinal = diaFinal;
+	}
+
+	public void setHrInicial(LocalTime hrInicial) {
+		this.hrInicial = hrInicial;
+	}
+
+	public void setHrFinal(LocalTime hrFinal) {
+		this.hrFinal = hrFinal;
+	}
+
+	/*
+	 * public CalendarioDto EntidDto(Calendario calen) { this.descricao =
+	 * calen.getDescricao(); this.diaInicial = calen.getDiaInicial(); this.diaFinal
+	 * = calen.getDiaFinal(); this.hrInicial = calen.getHrInicial(); this.hrFinal =
+	 * calen.getHrFinal(); return EntidDto(calen); }
+	 */
 
 }

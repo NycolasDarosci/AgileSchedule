@@ -14,8 +14,11 @@ public class CalendarioConverter {
 
 	public CalendarioDto calenDto(Calendario calendario) {
 		CalendarioDto Dto = new CalendarioDto();
-		Dto.setData(calendario.getData());
 		Dto.setDescricao(calendario.getDescricao());
+		Dto.setDiaInicial(calendario.getDiaInicial());
+		Dto.setDiaFinal(calendario.getDiaFinal());
+		Dto.setHrInicial(calendario.getHrInicial());
+		Dto.setHrFinal(calendario.getHrFinal());
 		return Dto;
 	}
 
