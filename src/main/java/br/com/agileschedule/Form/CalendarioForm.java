@@ -58,8 +58,6 @@ public class CalendarioForm {
 		this.hrFinal = hrFinal;
 	}
 
-	public CalendarioForm toForm(CalendarioRepository calendarioR) {
-		return null;
-	}
+	
 
 }
