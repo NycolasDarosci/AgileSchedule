@@ -39,7 +39,7 @@ public class homeController {
 	public ModelAndView home() {
 		return new ModelAndView("index");
 	}
-
+	//teste
 	@GetMapping("/Calendario")
 	public List<CalendarioDto> listCalendario() {
 		List<Calendario> calen = calendarioR.findAll();
