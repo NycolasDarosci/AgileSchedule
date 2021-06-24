@@ -3,8 +3,6 @@ package br.com.agileschedule.dto;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import br.com.agileschedule.entity.Calendario;
-
 public class CalendarioDTO {
 
 	private LocalDate diaInicial;
@@ -18,12 +16,10 @@ public class CalendarioDTO {
 	private String descricao;
 
 	public CalendarioDTO() {
-		super();
 	}
 
 	public CalendarioDTO(LocalDate diaInicial, LocalDate diaFinal, LocalTime hrInicial, LocalTime hrFinal,
 			String descricao) {
-		super();
 		this.diaInicial = diaInicial;
 		this.diaFinal = diaFinal;
 		this.hrInicial = hrInicial;
@@ -70,12 +66,4 @@ public class CalendarioDTO {
 	public void setHrFinal(LocalTime hrFinal) {
 		this.hrFinal = hrFinal;
 	}
-
-
-	  public CalendarioDTO EntidDto(Calendario calen) { this.descricao =
-	  calen.getDescricao(); this.diaInicial = calen.getDiaInicial(); this.diaFinal
-	  = calen.getDiaFinal(); this.hrInicial = calen.getHrInicial(); this.hrFinal =
-	  calen.getHrFinal(); return EntidDto(calen); }
-	 
-
 }
