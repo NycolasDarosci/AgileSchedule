@@ -2,8 +2,8 @@ package br.com.agileschedule.controller;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +46,7 @@ public class homeController {
 	@GetMapping("/calendario")
 	public List<CalendarioDTO> listCalendario() {
 		List<Calendario> calen = calendarioR.findAll();
-		return calenConverter.listCalendarioToListCalendarioDTO(calen);
+		return calenConverter.toListCalendarioDTO(calen);
 	}
 
 	@PostMapping("newCalendar")
@@ -54,13 +54,13 @@ public class homeController {
 		try {
 			
 			//Convertendo o CalendarioForm para um Model Calendario
-			Calendario calen = calenConverter.calendarioFormToCalendario(calenForm);
+			Calendario calen = calenConverter.toCalendario(calenForm);
 			
 			//colocando o id do calendario criado na URI
 			URI uri = builder.path("/calendario/{id}").buildAndExpand(calen.getId()).toUri();
 			
 			//convertendo o Model Calendario para um Calendario DTO e o retornando
-			return ResponseEntity.created(uri).body(calenConverter.calendarioToCalendarioDTO(calen));
+			return ResponseEntity.created(uri).body(calenConverter.toCalendarioDTO(calen));
 			
 		} catch (DataIntegrityViolationException SQL) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Não Foi Possivel Adicionar ao Calendario");
@@ -68,6 +68,7 @@ public class homeController {
 	}
 
 	@PutMapping("/calendario/{id}")
+	@Transactional
 	public CalendarioDTO atualizarEvento(@PathVariable(value = "id") Long id,
 			@Valid @RequestBody CalendarioForm calenForm) throws NotFoundException {
 
@@ -80,14 +81,12 @@ public class homeController {
 		calen.setHrInicial(calenForm.getHrInicial());
 		calen.setHrFinal(calenForm.getHrFinal());
 		
-		//salvando o calendário atualizado
-		Calendario calendar = calendarioR.save(calen);
-		
 		// convertendo o model Calendario para um CalendarioDTO e retornando
-		return calenConverter.calendarioToCalendarioDTO(calendar);
+		return calenConverter.toCalendarioDTO(calen);
 	}
 
 	@DeleteMapping("/calendario/{id}")
+	@Transactional
 	public ResponseEntity<?> deletarEvento(@PathVariable(value = "id") Long id) throws NotFoundException {
 
 		Calendario calen = calendarioR.findById(id).orElseThrow(() -> new NotFoundException("Evento não encontrado!"));

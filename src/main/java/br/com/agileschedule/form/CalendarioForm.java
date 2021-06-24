@@ -5,8 +5,6 @@ import java.time.LocalTime;
 
 import javax.validation.constraints.NotNull;
 
-import br.com.agileschedule.repository.CalendarioRepository;
-
 public class CalendarioForm {
 
 	@NotNull
@@ -23,20 +21,6 @@ public class CalendarioForm {
 
 	@NotNull
 	private LocalTime hrFinal;
-
-	public CalendarioForm() {
-
-	}
-
-	public CalendarioForm(@NotNull String descricao, @NotNull LocalDate diaInicial, @NotNull LocalDate diaFinal,
-			@NotNull LocalTime hrInicial, @NotNull LocalTime hrFinal) {
-
-		this.descricao = descricao;
-		this.diaInicial = diaInicial;
-		this.diaFinal = diaFinal;
-		this.hrInicial = hrInicial;
-		this.hrFinal = hrFinal;
-	}
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
@@ -77,8 +61,4 @@ public class CalendarioForm {
 	public LocalTime getHrFinal() {
 		return hrFinal;
 	}
-	
-
-	
-
 }
