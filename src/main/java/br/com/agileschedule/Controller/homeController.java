@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -26,7 +27,8 @@ import br.com.agileschedule.Form.CalendarioForm;
 import br.com.agileschedule.Repository.CalendarioRepository;
 import javassist.NotFoundException;
 
-@Controller("/")
+@Controller
+@RequestMapping("/")
 public class homeController {
 
 	@Autowired
@@ -39,7 +41,6 @@ public class homeController {
 	public ModelAndView home() {
 		return new ModelAndView("index");
 	}
-	//teste
 	@GetMapping("/Calendario")
 	public List<CalendarioDto> listCalendario() {
 		List<Calendario> calen = calendarioR.findAll();
@@ -56,11 +57,10 @@ public class homeController {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Não Foi Possivel Adicionar ao Calendario");
 		}
 
-		// new CalendarioDto().EntidDto(calen)
 	}
 
 	// !!!! testar o método !!!!
-	@PutMapping("/Calendario/${id}")
+	@PutMapping("/Calendario/{id}")
 	public CalendarioForm atualizarEvento(@PathVariable(value = "id") Long id,
 			@Valid @RequestBody CalendarioDto calendario) throws NotFoundException {
 
@@ -79,13 +79,11 @@ public class homeController {
 	}
 
 	// !!!! testar o método !!!!
-	@DeleteMapping("/Calendario/${id}")
-	public ResponseEntity<?> deletarEvento(@PathVariable(value = "id") Long id) throws NotFoundException {
-
+	@DeleteMapping("/{id}")
+	public ResponseEntity deletarEvento(@PathVariable(value = "id") Long id) throws NotFoundException {
 		Calendario calen = calendarioR.findById(id).orElseThrow(() -> new NotFoundException("Evento não encontrado!"));
-
 		// deletando
 		calendarioR.delete(calen);
-		return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+		return ResponseEntity.noContent().build();
 	}
 }
