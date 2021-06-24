@@ -39,7 +39,8 @@ public class homeController {
 	public ModelAndView home() {
 		return new ModelAndView("index");
 	}
-	//teste
+
+	// teste
 	@GetMapping("/Calendario")
 	public List<CalendarioDto> listCalendario() {
 		List<Calendario> calen = calendarioR.findAll();
@@ -60,7 +61,7 @@ public class homeController {
 	}
 
 	// !!!! testar o método !!!!
-	@PutMapping("/Calendario/${id}")
+	@PutMapping("/Calendario/{id}")
 	public CalendarioForm atualizarEvento(@PathVariable(value = "id") Long id,
 			@Valid @RequestBody CalendarioDto calendario) throws NotFoundException {
 
@@ -79,7 +80,7 @@ public class homeController {
 	}
 
 	// !!!! testar o método !!!!
-	@DeleteMapping("/Calendario/${id}")
+	@DeleteMapping("/Calendario/{id}")
 	public ResponseEntity<?> deletarEvento(@PathVariable(value = "id") Long id) throws NotFoundException {
 
 		Calendario calen = calendarioR.findById(id).orElseThrow(() -> new NotFoundException("Evento não encontrado!"));
