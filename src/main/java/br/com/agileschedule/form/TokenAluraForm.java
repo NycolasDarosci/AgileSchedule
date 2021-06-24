@@ -15,7 +15,5 @@ public class TokenAluraForm {
 	public void setTokenAlura(String tokenAlura) {
 		TokenAlura = tokenAlura;
 	}
-	
-    	
-	
+
 }

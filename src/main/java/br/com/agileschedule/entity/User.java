@@ -15,10 +15,10 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(name = "nome")
 	private String nome;
-	
+
 	@Column(name = "user")
 	private String userName;
 
@@ -28,7 +28,7 @@ public class User {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "tokenalura_id", referencedColumnName = "id")
 	private TokenAlura tokenalura;
-	
+
 	public User(String nome, String userName, String senha) {
 		super();
 		this.nome = nome;

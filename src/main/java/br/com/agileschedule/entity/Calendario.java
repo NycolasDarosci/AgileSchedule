@@ -2,7 +2,6 @@ package br.com.agileschedule.Entity;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,7 +33,7 @@ public class Calendario {
 
 	public Calendario(LocalDate diaInicial, LocalDate diaFinal, LocalTime hrInicial, LocalTime hrFinal,
 			String descricao) {
-		super();
+
 		this.diaInicial = diaInicial;
 		this.diaFinal = diaFinal;
 		this.hrInicial = hrInicial;

@@ -16,10 +16,10 @@ public class TokenAlura {
 
 	@Column(name = "TokenAlura")
 	private String TokenAlura;
-	
+
 	@OneToOne
-	private User user; 
-	
+	private User user;
+
 	public TokenAlura() {
 		super();
 	}
