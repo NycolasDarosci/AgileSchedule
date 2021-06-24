@@ -78,9 +78,9 @@ public class homeController {
 		return convert.calenForm(calendar);
 	}
 
-	// !!!! testar o método !!!!
-	@DeleteMapping("/{id}")
-	public ResponseEntity deletarEvento(@PathVariable(value = "id") Long id) throws NotFoundException {
+	@DeleteMapping("/Calendario/{id}")
+	public ResponseEntity<?> deletarEvento(@PathVariable(value = "id") Long id) throws NotFoundException {
+
 		Calendario calen = calendarioR.findById(id).orElseThrow(() -> new NotFoundException("Evento não encontrado!"));
 		// deletando
 		calendarioR.delete(calen);

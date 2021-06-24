@@ -72,7 +72,6 @@ public class CalendarioDto {
 		this.hrFinal = hrFinal;
 	}
 
-	
 	  public CalendarioDto EntidDto(Calendario calen) { this.descricao =
 	  calen.getDescricao(); this.diaInicial = calen.getDiaInicial(); this.diaFinal
 	  = calen.getDiaFinal(); this.hrInicial = calen.getHrInicial(); this.hrFinal =
