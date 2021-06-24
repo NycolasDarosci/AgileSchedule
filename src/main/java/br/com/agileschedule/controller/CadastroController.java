@@ -1,4 +1,4 @@
-package br.com.agileschedule.Controller;
+package br.com.agileschedule.controller;
 
 import java.net.URI;
 
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.agileschedule.DTO.UserDTO;
-import br.com.agileschedule.Entity.User;
-import br.com.agileschedule.Form.UserForm;
-import br.com.agileschedule.Repository.UserRepository;
+import br.com.agileschedule.entity.User;
+import br.com.agileschedule.form.UserForm;
+import br.com.agileschedule.repository.UserRepository;
 
 @Controller
 public class CadastroController {

@@ -1,4 +1,4 @@
-package br.com.agileschedule.Components;
+package br.com.agileschedule.components;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import br.com.agileschedule.DTO.CalendarioDTO;
-import br.com.agileschedule.Entity.Calendario;
-import br.com.agileschedule.Form.CalendarioForm;
+import br.com.agileschedule.entity.Calendario;
+import br.com.agileschedule.form.CalendarioForm;
 
 @Component
 public class CalendarioConverter {

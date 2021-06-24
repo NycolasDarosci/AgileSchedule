@@ -1,4 +1,4 @@
-package br.com.agileschedule.Form;
+package br.com.agileschedule.form;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

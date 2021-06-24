@@ -1,4 +1,4 @@
-package br.com.agileschedule.Entity;
+package br.com.agileschedule.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

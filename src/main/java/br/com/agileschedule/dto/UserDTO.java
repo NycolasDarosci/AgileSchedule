@@ -1,6 +1,6 @@
 package br.com.agileschedule.DTO;
 
-import br.com.agileschedule.Entity.User;
+import br.com.agileschedule.entity.User;
 
 public class UserDTO {
 

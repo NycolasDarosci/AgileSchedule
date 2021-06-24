@@ -1,4 +1,4 @@
-package br.com.agileschedule.Controller;
+package br.com.agileschedule.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -21,11 +21,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.agileschedule.Components.CalendarioConverter;
+import br.com.agileschedule.components.CalendarioConverter;
 import br.com.agileschedule.DTO.CalendarioDTO;
-import br.com.agileschedule.Entity.Calendario;
-import br.com.agileschedule.Form.CalendarioForm;
-import br.com.agileschedule.Repository.CalendarioRepository;
+import br.com.agileschedule.entity.Calendario;
+import br.com.agileschedule.form.CalendarioForm;
+import br.com.agileschedule.repository.CalendarioRepository;
 import javassist.NotFoundException;
 
 @Controller

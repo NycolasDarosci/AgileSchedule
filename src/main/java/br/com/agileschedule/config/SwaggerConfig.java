@@ -1,4 +1,4 @@
-package br.com.agileschedule.Config;
+package br.com.agileschedule.config;
 
 import java.util.ArrayList;
 
