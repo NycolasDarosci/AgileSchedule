@@ -1,4 +1,4 @@
-package br.com.agileschedule.Entity;
+package br.com.agileschedule.entity;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import br.com.agileschedule.form.CalendarioForm;
 
 @Entity
 public class Calendario {
@@ -32,9 +34,9 @@ public class Calendario {
 	@Column(name = "descricao")
 	private String descricao;
 
-	public Calendario(LocalDate diaInicial, LocalDate diaFinal, LocalTime hrInicial, LocalTime hrFinal,
-			String descricao) {
-		super();
+	public Calendario(LocalDate diaInicial, LocalDate diaFinal, LocalTime hrInicial,
+			LocalTime hrFinal, String descricao) {
+		
 		this.diaInicial = diaInicial;
 		this.diaFinal = diaFinal;
 		this.hrInicial = hrInicial;

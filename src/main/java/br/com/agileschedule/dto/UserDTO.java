@@ -1,8 +1,8 @@
-package br.com.agileschedule.DTO;
+package br.com.agileschedule.dto;
 
-import br.com.agileschedule.Entity.User;
+import br.com.agileschedule.entity.User;
 
-public class UserDto {
+public class UserDTO {
 
 	private String user;
 
@@ -14,8 +14,8 @@ public class UserDto {
 		this.user = user;
 	}
 
-	public UserDto EntidDTO(User user) {
-		UserDto dto = new UserDto();
+	public UserDTO EntidDTO(User user) {
+		UserDTO dto = new UserDTO();
 		dto.setUser(user.getUserName());
 		return dto;
 	}

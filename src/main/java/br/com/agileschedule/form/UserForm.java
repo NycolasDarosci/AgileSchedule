@@ -1,7 +1,7 @@
-package br.com.agileschedule.Form;
+package br.com.agileschedule.form;
 
-import br.com.agileschedule.Entity.User;
-import br.com.agileschedule.Repository.UserRepository;
+import br.com.agileschedule.entity.User;
+import br.com.agileschedule.repository.UserRepository;
 
 public class UserForm {
 	

@@ -1,8 +1,8 @@
-package br.com.agileschedule.Repository;
+package br.com.agileschedule.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.agileschedule.Entity.User;
+import br.com.agileschedule.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Long>{
 

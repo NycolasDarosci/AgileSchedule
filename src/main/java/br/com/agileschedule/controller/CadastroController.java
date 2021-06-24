@@ -1,4 +1,4 @@
-package br.com.agileschedule.Controller;
+package br.com.agileschedule.controller;
 
 import java.net.URI;
 
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.agileschedule.DTO.UserDto;
-import br.com.agileschedule.Entity.User;
-import br.com.agileschedule.Form.UserForm;
-import br.com.agileschedule.Repository.UserRepository;
+import br.com.agileschedule.dto.UserDTO;
+import br.com.agileschedule.entity.User;
+import br.com.agileschedule.form.UserForm;
+import br.com.agileschedule.repository.UserRepository;
 
 @Controller
 public class CadastroController {
@@ -29,6 +29,6 @@ public class CadastroController {
 			UriComponentsBuilder builder){
 		User user = userF.toForm(useR);
         URI uri = builder.path("/cadastro/{id}").buildAndExpand(user.getId()).toUri();
-        return ResponseEntity.created(uri).body(new UserDto().EntidDTO(user));
+        return ResponseEntity.created(uri).body(new UserDTO().EntidDTO(user));
 	}
 }

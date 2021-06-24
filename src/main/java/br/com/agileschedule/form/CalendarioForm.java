@@ -1,12 +1,11 @@
-package br.com.agileschedule.Form;
+package br.com.agileschedule.form;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 import javax.validation.constraints.NotNull;
 
-import br.com.agileschedule.Entity.Calendario;
-import br.com.agileschedule.Repository.CalendarioRepository;
+import br.com.agileschedule.repository.CalendarioRepository;
 
 public class CalendarioForm {
 
@@ -26,12 +25,12 @@ public class CalendarioForm {
 	private LocalTime hrFinal;
 
 	public CalendarioForm() {
-		super();
+
 	}
 
 	public CalendarioForm(@NotNull String descricao, @NotNull LocalDate diaInicial, @NotNull LocalDate diaFinal,
 			@NotNull LocalTime hrInicial, @NotNull LocalTime hrFinal) {
-		super();
+
 		this.descricao = descricao;
 		this.diaInicial = diaInicial;
 		this.diaFinal = diaFinal;
@@ -59,9 +58,27 @@ public class CalendarioForm {
 		this.hrFinal = hrFinal;
 	}
 
-	public Calendario toForm(CalendarioRepository calendarioR) {
-		Calendario calen = new Calendario();
-		return calendarioR.save(calen);
+	public String getDescricao() {
+		return descricao;
 	}
+
+	public LocalDate getDiaInicial() {
+		return diaInicial;
+	}
+
+	public LocalDate getDiaFinal() {
+		return diaFinal;
+	}
+
+	public LocalTime getHrInicial() {
+		return hrInicial;
+	}
+
+	public LocalTime getHrFinal() {
+		return hrFinal;
+	}
+	
+
+	
 
 }
