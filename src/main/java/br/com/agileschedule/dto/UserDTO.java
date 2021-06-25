@@ -1,4 +1,4 @@
-package br.com.agileschedule.DTO;
+package br.com.agileschedule.dto;
 
 import br.com.agileschedule.entity.User;
 

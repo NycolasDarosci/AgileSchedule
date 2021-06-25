@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import br.com.agileschedule.DTO.CalendarioDTO;
+import br.com.agileschedule.dto.CalendarioDTO;
 import br.com.agileschedule.entity.Calendario;
 import br.com.agileschedule.form.CalendarioForm;
 
