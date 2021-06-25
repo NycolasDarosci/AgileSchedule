@@ -6,6 +6,10 @@ import java.util.List;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -44,9 +48,10 @@ public class homeController {
 	}
 	
 	@GetMapping("/calendario")
-	public List<CalendarioDTO> listCalendario() {
+	public ResponseEntity<List<CalendarioDTO>> listCalendario() {
 		List<Calendario> calen = calendarioR.findAll();
-		return calenConverter.toListCalendarioDTO(calen);
+		
+		return ResponseEntity.ok(calenConverter.toListCalendarioDTO(calen));
 	}
 
 	@PostMapping("newCalendar")
@@ -56,6 +61,7 @@ public class homeController {
 			//Convertendo o CalendarioForm para um Model Calendario
 			Calendario calen = calenConverter.toCalendario(calenForm);
 			
+			calendarioR.save(calen);
 			//colocando o id do calendario criado na URI
 			URI uri = builder.path("/calendario/{id}").buildAndExpand(calen.getId()).toUri();
 			
