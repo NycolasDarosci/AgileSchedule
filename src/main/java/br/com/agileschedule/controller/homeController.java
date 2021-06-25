@@ -75,7 +75,7 @@ public class homeController {
 
 	@PutMapping("/calendario/{id}")
 	@Transactional
-	public CalendarioDTO atualizarEvento(@PathVariable(value = "id") Long id,
+	public ResponseEntity<CalendarioDTO> atualizarEvento(@PathVariable(value = "id") Long id,
 			@Valid @RequestBody CalendarioForm calenForm) throws NotFoundException {
 
 		// esperando atualizar o objeto Calendario
@@ -88,7 +88,7 @@ public class homeController {
 		calen.setHrFinal(calenForm.getHrFinal());
 
 		// convertendo o model Calendario para um CalendarioDTO e retornando
-		return calenConverter.toCalendarioDTO(calen);
+		return ResponseEntity.ok(calenConverter.toCalendarioDTO(calen));
 	}
 
 	@DeleteMapping("/calendario/{id}")
