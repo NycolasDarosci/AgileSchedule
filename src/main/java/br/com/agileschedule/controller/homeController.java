@@ -6,10 +6,6 @@ import java.util.List;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -26,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.agileschedule.components.CalendarioConverter;
-import br.com.agileschedule.DTO.CalendarioDTO;
+import br.com.agileschedule.dto.CalendarioDTO;
 import br.com.agileschedule.entity.Calendario;
 import br.com.agileschedule.form.CalendarioForm;
 import br.com.agileschedule.repository.CalendarioRepository;
