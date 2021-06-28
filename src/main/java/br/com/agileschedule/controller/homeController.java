@@ -26,7 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.agileschedule.components.CalendarioConverter;
-import br.com.agileschedule.DTO.CalendarioDTO;
+import br.com.agileschedule.dto.CalendarioDTO;
 import br.com.agileschedule.entity.Calendario;
 import br.com.agileschedule.form.CalendarioForm;
 import br.com.agileschedule.repository.CalendarioRepository;
