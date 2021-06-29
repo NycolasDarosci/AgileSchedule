@@ -14,6 +14,8 @@ import javax.persistence.OneToOne;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import br.com.agileschedule.form.TokenAluraForm;
+
 @Entity
 public class User implements UserDetails {
 
@@ -24,7 +26,7 @@ public class User implements UserDetails {
 	@Column(name = "nome", nullable = false)
 	private String nome;
 
-	@Column(name = "email",unique = true, nullable = false)
+	@Column(name = "email", unique = true, nullable = false)
 	private String email;
 
 	@Column(name = "senha", nullable = false)
@@ -32,6 +34,10 @@ public class User implements UserDetails {
 
 	@Column(name = "token_alura")
 	private String tokenAlura;
+
+	public User() {
+
+	}
 
 	public User(String tokenAlura, String nome, String email, String senha) {
 		super();
@@ -73,14 +79,18 @@ public class User implements UserDetails {
 		this.senha = senha;
 	}
 
-	public User() {
-		super();
-	}
-
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return null;
-	
+
+	}
+
+	public String getTokenAlura() {
+		return tokenAlura;
+	}
+
+	public void setTokenAlura(String tokenAlura) {
+		this.tokenAlura = tokenAlura;
 	}
 
 	@Override
@@ -112,4 +122,5 @@ public class User implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
+	
 }
