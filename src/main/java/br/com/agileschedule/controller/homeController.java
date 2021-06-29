@@ -39,6 +39,9 @@ public class homeController {
 	@Autowired
 	private CalendarioRepository calendarioR;
 
+	@Autowired
+	private Validacao validacao;
+
 	@GetMapping
 	public ModelAndView home() {
 		return new ModelAndView("index");
@@ -55,7 +58,6 @@ public class homeController {
 	public ResponseEntity<?> criarEvento(@RequestBody @Valid CalendarioForm calenForm, UriComponentsBuilder builder) {
 
 		// verificacao de dataInformada < data.now()
-		Validacao validacao = new Validacao();
 		validacao.verificarData(calenForm);
 
 		try {

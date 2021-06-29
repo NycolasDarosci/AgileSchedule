@@ -8,15 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import br.com.agileschedule.form.TokenAluraForm;
-import br.com.agileschedule.repository.UserRepository;
 import br.com.agileschedule.service.UserService;
 import javassist.NotFoundException;
 
 @Controller
 public class TokenAluraController {
 
-	@Autowired
-	private UserRepository userR;
 	@Autowired
 	private UserService userS;
 
