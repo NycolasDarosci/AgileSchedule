@@ -6,13 +6,13 @@ import br.com.agileschedule.repository.UserRepository;
 public class UserForm {
 
 	private String nome;
-	private String userName;
+	private String email;
 	private String senha;
 
-	public UserForm(String nome, String userName, String senha) {
+	public UserForm(String nome, String email, String senha) {
 		super();
 		this.nome = nome;
-		this.userName = userName;
+		this.email = email;
 		this.senha = senha;
 	}
 
@@ -28,12 +28,12 @@ public class UserForm {
 		this.nome = nome;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserName(String email) {
+		this.email = email;
 	}
 
 	public String getSenha() {
@@ -45,7 +45,7 @@ public class UserForm {
 	}
 
 	public User toForm(UserRepository useR) {
-		User user = new User(nome, userName, senha);
+		User user = new User(nome, email, senha);
 		useR.save(user);
 		return user;
 	}

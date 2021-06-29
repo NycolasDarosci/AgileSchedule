@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.agileschedule.components.CalendarioConverter;
+import br.com.agileschedule.controller.validar.Validacao;
 import br.com.agileschedule.dto.CalendarioDTO;
 import br.com.agileschedule.entity.Calendario;
 import br.com.agileschedule.form.CalendarioForm;
@@ -52,8 +53,12 @@ public class homeController {
 
 	@PostMapping("newCalendar")
 	public ResponseEntity<?> criarEvento(@RequestBody @Valid CalendarioForm calenForm, UriComponentsBuilder builder) {
-		try {
 
+		// verificacao de dataInformada < data.now()
+		Validacao validacao = new Validacao();
+		validacao.verificarData(calenForm);
+
+		try {
 			// Convertendo o CalendarioForm para um Model Calendario
 			Calendario calen = calenConverter.toCalendario(calenForm);
 
