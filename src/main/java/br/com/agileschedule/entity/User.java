@@ -21,24 +21,24 @@ public class User implements UserDetails {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "nome")
+	@Column(name = "nome", nullable = false)
 	private String nome;
 
-	@Column(name = "email")
+	@Column(name = "email",unique = true, nullable = false)
 	private String email;
 
-	@Column(name = "senha")
+	@Column(name = "senha", nullable = false)
 	private String senha;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "tokenalura_id", referencedColumnName = "id")
-	private TokenAlura tokenalura;
+	@Column(name = "token_alura")
+	private String tokenAlura;
 
-	public User(String nome, String userName, String senha) {
+	public User(String tokenAlura, String nome, String email, String senha) {
 		super();
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
+		this.tokenAlura = tokenAlura;
 	}
 
 	public Long getId() {
@@ -80,6 +80,7 @@ public class User implements UserDetails {
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return null;
+	
 	}
 
 	@Override
