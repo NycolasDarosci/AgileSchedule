@@ -45,7 +45,7 @@ public class UserForm {
 	}
 
 	public User toForm(UserRepository useR) {
-		User user = new User(nome, email, senha);
+		User user = new User(nome, email, senha, null);
 		useR.save(user);
 		return user;
 	}
