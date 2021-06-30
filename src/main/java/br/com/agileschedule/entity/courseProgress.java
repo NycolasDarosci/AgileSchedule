@@ -1,38 +1,38 @@
 package br.com.agileschedule.entity;
 
-public class courseProgress {
+import java.time.LocalTime;
 
-	private Long id;
+public class CourseProgress {
+
+	private int id;
+	private String name;
 	private String slug;
-	private boolean finished; 
-	private Long lasAcessTime;
+	private boolean finished;
+	private LocalTime lastAcessTime;
 	private int progress;
 	private boolean readyToFinish;
-	
-	public courseProgress(Long id, String slug, boolean finished, Long lasAcessTime, int progress,
+
+	public CourseProgress(int id, String name, String slug, boolean finished, LocalTime lastAcessTime, int progress,
 			boolean readyToFinish) {
 		super();
 		this.id = id;
+		this.name = name;
 		this.slug = slug;
 		this.finished = finished;
-		this.lasAcessTime = lasAcessTime;
+		this.lastAcessTime = lastAcessTime;
 		this.progress = progress;
 		this.readyToFinish = readyToFinish;
 	}
 
-	
-	
-	public courseProgress() {
+	public CourseProgress() {
 		super();
 	}
 
-
-
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -52,12 +52,12 @@ public class courseProgress {
 		this.finished = finished;
 	}
 
-	public Long getLasAcessTime() {
-		return lasAcessTime;
+	public LocalTime getLasAcessTime() {
+		return lastAcessTime;
 	}
 
-	public void setLasAcessTime(Long lasAcessTime) {
-		this.lasAcessTime = lasAcessTime;
+	public void setLasAcessTime(LocalTime lastAcessTime) {
+		this.lastAcessTime = lastAcessTime;
 	}
 
 	public int getProgress() {
@@ -75,8 +75,13 @@ public class courseProgress {
 	public void setReadyToFinish(boolean readyToFinish) {
 		this.readyToFinish = readyToFinish;
 	}
-	
-	
-	
-	
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
 }

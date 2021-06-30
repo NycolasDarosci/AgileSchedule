@@ -1,19 +1,21 @@
 package br.com.agileschedule.entity;
 
-public class guides {
+import java.time.LocalTime;
 
-	private Long id;
+public class Guides {
+
+	private int id;
 	private String code;
 	private String name;
 	private String url;
-	private Long lastAccessTime;
+	private LocalTime lastAccessTime;
 	private String kind;
 	private int totalCourses;
 	private int finishedCourses;
 	private String color;
 	private String author;
 
-	public guides(Long id, String code, String name, String url, Long lastAccessTime, String kind, int totalCourses,
+	public Guides(int id, String code, String name, String url, LocalTime lastAccessTime, String kind, int totalCourses,
 			int finishedCourses, String color, String author) {
 		super();
 		this.id = id;
@@ -28,15 +30,15 @@ public class guides {
 		this.author = author;
 	}
 
-	public guides() {
+	public Guides() {
 		super();
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -64,11 +66,11 @@ public class guides {
 		this.url = url;
 	}
 
-	public Long getLastAccessTime() {
+	public LocalTime getLastAccessTime() {
 		return lastAccessTime;
 	}
 
-	public void setLastAccessTime(Long lastAccessTime) {
+	public void setLastAccessTime(LocalTime lastAccessTime) {
 		this.lastAccessTime = lastAccessTime;
 	}
 
