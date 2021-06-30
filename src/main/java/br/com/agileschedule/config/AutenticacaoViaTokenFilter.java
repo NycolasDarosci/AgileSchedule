@@ -7,9 +7,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.token.TokenService;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import br.com.agileschedule.entity.User;
@@ -17,11 +17,14 @@ import br.com.agileschedule.repository.UserRepository;
 
 public class AutenticacaoViaTokenFilter extends OncePerRequestFilter {
 
+	@Autowired
 	private TokenService tokenService;
+
+	@Autowired
 	private UserRepository clienteRepository;
 
-	public AutenticacaoViaTokenFilter(TokenService tokenService, UserRepository repository) {
-		this.tokenService = tokenService;
+	public AutenticacaoViaTokenFilter(TokenService service, UserRepository repository) {
+		this.tokenService = service;
 		this.clienteRepository = repository;
 	}
 

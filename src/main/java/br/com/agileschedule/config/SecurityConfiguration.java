@@ -23,7 +23,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	private AutenticacaoService autenticacaoService;
 
 	@Autowired
-	private TokenService service;
+	private br.com.agileschedule.config.TokenService service;
 
 	@Autowired
 	private UserRepository repository;
