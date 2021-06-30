@@ -18,8 +18,11 @@ public class ApiAlura {
 
     // chamada para os dados da alura
     public CourseProgress obterJson() {
+        
+        // pegar o token colocado pelo usuario
         userService.findByToken();
 
-        this.webClient.method(HttpMethod.GET).uri("/api/dashboard/{token}")
+        //  continuar...
+        this.webClient.method(HttpMethod.GET).uri("/api/dashboard/{token}") 
     }
 }
