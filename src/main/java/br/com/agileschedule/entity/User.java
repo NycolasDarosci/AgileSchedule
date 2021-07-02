@@ -11,13 +11,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.userdetails.UserDetails;
 
 import br.com.agileschedule.form.TokenAluraForm;
 
+//implements UserDetails
 @Entity
-public class User implements UserDetails {
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -79,12 +80,6 @@ public class User implements UserDetails {
 		this.senha = senha;
 	}
 
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return null;
-
-	}
-
 	public String getTokenAlura() {
 		return tokenAlura;
 	}
@@ -93,34 +88,4 @@ public class User implements UserDetails {
 		this.tokenAlura = tokenAlura;
 	}
 
-	@Override
-	public String getPassword() {
-		return this.senha;
-	}
-
-	@Override
-	public String getUsername() {
-		return this.email;
-	}
-
-	@Override
-	public boolean isAccountNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		return true;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		return true;
-	}
-	
 }

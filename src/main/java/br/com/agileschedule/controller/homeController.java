@@ -22,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.agileschedule.components.CalendarioConverter;
-import br.com.agileschedule.controller.validar.Validacao;
+//import br.com.agileschedule.controller.validar.Validacao;
 import br.com.agileschedule.dto.CalendarioDTO;
 import br.com.agileschedule.entity.Calendario;
 import br.com.agileschedule.form.CalendarioForm;
@@ -39,8 +39,8 @@ public class homeController {
 	@Autowired
 	private CalendarioRepository calendarioR;
 
-	@Autowired
-	private Validacao validacao;
+	// @Autowired
+	// private Validacao validacao;
 
 	@GetMapping
 	public ModelAndView home() {
@@ -58,7 +58,7 @@ public class homeController {
 	public ResponseEntity<?> criarEvento(@RequestBody @Valid CalendarioForm calenForm, UriComponentsBuilder builder) {
 
 		// verificacao de dataInformada < data.now()
-		validacao.verificarData(calenForm);
+		// validacao.verificarData(calenForm);
 
 		try {
 			// Convertendo o CalendarioForm para um Model Calendario

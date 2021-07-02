@@ -8,6 +8,6 @@ import br.com.agileschedule.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-	Optional<User> findByEmail(String username);
+	User findByEmail(String email);
 
 }

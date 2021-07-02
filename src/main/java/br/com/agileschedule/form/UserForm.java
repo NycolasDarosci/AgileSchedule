@@ -1,12 +1,18 @@
 package br.com.agileschedule.form;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+
 import br.com.agileschedule.entity.User;
 import br.com.agileschedule.repository.UserRepository;
 
 public class UserForm {
 
+	@NotBlank
 	private String nome;
+	@NotBlank
 	private String email;
+	@NotBlank
 	private String senha;
 
 	public UserForm(String nome, String email, String senha) {
@@ -44,7 +50,7 @@ public class UserForm {
 		this.senha = senha;
 	}
 
-	public User toForm(UserRepository useR) {
+	public User toForm(UserRepository useR, @Valid UserForm userF) {
 		User user = new User(nome, email, senha, null);
 		useR.save(user);
 		return user;
