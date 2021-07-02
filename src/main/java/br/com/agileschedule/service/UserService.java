@@ -12,10 +12,18 @@ public class UserService {
 
 	public User tokenAlura(TokenAluraForm tokenF) throws NotFoundException {
 
-		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		user.setTokenAlura(tokenF.getTokenALura());
 		return user;
-
+		
+	
+	}
+	public void findByToken() {
+		
 	}
 
+	
+	
+	
+	
 }

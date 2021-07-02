@@ -1,6 +1,6 @@
 package br.com.agileschedule.entity;
 
-import java.time.LocalTime;
+import java.util.Date;
 
 public class Guides {
 
@@ -8,14 +8,14 @@ public class Guides {
 	private String code;
 	private String name;
 	private String url;
-	private LocalTime lastAccessTime;
+	private Date lastAccessTime;
 	private String kind;
 	private int totalCourses;
 	private int finishedCourses;
 	private String color;
 	private String author;
 
-	public Guides(int id, String code, String name, String url, LocalTime lastAccessTime, String kind, int totalCourses,
+	public Guides(int id, String code, String name, String url, Date lastAccessTime, String kind, int totalCourses,
 			int finishedCourses, String color, String author) {
 		super();
 		this.id = id;
@@ -66,11 +66,11 @@ public class Guides {
 		this.url = url;
 	}
 
-	public LocalTime getLastAccessTime() {
+	public Date getLastAccessTime() {
 		return lastAccessTime;
 	}
 
-	public void setLastAccessTime(LocalTime lastAccessTime) {
+	public void setLastAccessTime(Date lastAccessTime) {
 		this.lastAccessTime = lastAccessTime;
 	}
 

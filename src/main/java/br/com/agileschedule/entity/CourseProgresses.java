@@ -1,18 +1,19 @@
 package br.com.agileschedule.entity;
 
 import java.time.LocalTime;
+import java.util.Date;
 
-public class CourseProgress {
+public class CourseProgresses {
 
 	private int id;
 	private String name;
 	private String slug;
 	private boolean finished;
-	private LocalTime lastAcessTime;
+	private Date lastAcessTime;
 	private int progress;
 	private boolean readyToFinish;
 
-	public CourseProgress(int id, String name, String slug, boolean finished, LocalTime lastAcessTime, int progress,
+	public CourseProgresses(int id, String name, String slug, boolean finished, Date lastAcessTime, int progress,
 			boolean readyToFinish) {
 		super();
 		this.id = id;
@@ -24,7 +25,7 @@ public class CourseProgress {
 		this.readyToFinish = readyToFinish;
 	}
 
-	public CourseProgress() {
+	public CourseProgresses() {
 		super();
 	}
 
@@ -52,11 +53,11 @@ public class CourseProgress {
 		this.finished = finished;
 	}
 
-	public LocalTime getLasAcessTime() {
+	public Date getLastAcessTime() {
 		return lastAcessTime;
 	}
 
-	public void setLasAcessTime(LocalTime lastAcessTime) {
+	public void setLastAcessTime(Date lastAcessTime) {
 		this.lastAcessTime = lastAcessTime;
 	}
 

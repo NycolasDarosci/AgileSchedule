@@ -12,8 +12,8 @@ import org.springframework.web.reactive.function.client.WebClient.Builder;
 public class AgilescheduleApplication {
 
 	@Bean
-	public WebClient webClient(WebClient.Builder builder) {
-		return builder.baseUrl("https://www.alura.com.br/api/dashboard/")
+	public WebClient webClientAlura(WebClient.Builder builder) {
+		return builder.baseUrl("https://www.alura.com.br/api")
 				.defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE).build();
 	}
 
