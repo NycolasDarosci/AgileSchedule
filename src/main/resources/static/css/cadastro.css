@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&family=Nunito:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&family=Nunito:wght@300&display=swap');@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 * {
     margin: 0;
@@ -32,17 +32,18 @@ body{
 
 .container h1{
     margin-bottom: 0.5rem;
-    margin-left:0.5rem;
+    margin-left: 0.5rem;
     align-items: center;
 }
 
 .container img{
+
     height: 100px;
     margin-bottom: 1.2rem;
 }
 
 .container h2{
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-weight: 700;
     display: flex;
     justify-content: center;
@@ -64,9 +65,9 @@ body{
     border: none;
     width: 100%;
     background-color: white;
-    border-radius: 0.25rem;
-    padding: 0.5rem; 
-    border-bottom: 1px solid #b9b9b9;  
+    border-radius: 0.2rem;
+    padding: 0.5rem;
+    border-bottom: 1px solid #b9b9b9;
     outline: none;
 }
 
@@ -79,26 +80,22 @@ body{
 }
 
 
-
-/* ========= Buttons ==========*/
- 
-.btn-entrar{
+.btn-criar{
     margin-top: 0.5rem;
 }
 
-.btn-entrar button{
+.btn-criar button{
+    cursor: pointer;
     font-weight: 500;
     font-size: 1rem;
-    cursor: pointer;
     border: none;
     padding: 0.5rem;
     border-radius: 0.2rem;
     background: linear-gradient(30deg, #fadf66, #ffae5d);
     width: 100%;
-
 }
 
-.btn-login button{
+.btn-cadastro button{
     font-weight: 500;
     font-size: 1rem;
     margin-top: 0.5rem;
@@ -112,7 +109,7 @@ body{
 
 footer{
     display: flex;
-    flex-direction: column; 
+    flex-direction:column; 
     margin-top: 1.5rem;
 }
 

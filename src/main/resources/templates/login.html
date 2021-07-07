@@ -5,13 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-    <!-- FOMRULARIO DE LOGIN -->
+    
     <div class="container">
-        <h1>Login</h1>
-        <form action="#" method="post">
+        <div class="div-block">
+            <img src="images/prototipo2.png" alt="">
+            <h1>Agile Schedule</h1>
+        </div>    
+        <!-- FOMRULARIO DE LOGIN -->
+        <h2>Login</h2>
+        <hr>
+        <form action="#" method="post" class="formulario">
             <div class="input-block">
                 <label for="email"></label>
                 <input type="email" name="email" id="email" placeholder="Email">
@@ -20,14 +26,15 @@
                 <label for="senha"></label>
                 <input type="password" name="senha" id="senha" placeholder="Senha">
             </div>
-                <small><input type="checkbox">Manter-me logado</small> 
-            </div>
-            <button>Logar</button>
+
+            <!-- botao para entrar na plataforma-->
+            <a class="btn-entrar" href="#"><button>Entrar</button></a>
         </form>
-        <div>
-            <p>Não possui conta?</p>
-            <button><link rel="stylesheet" th:href="@{/cadastro}">Cadastre-se</button>
-        </div>        
-    </div>
+        <footer>    
+            <span>Não possui conta?</span>
+            <a class="btn-login" href="cadastro.html"><button>Cadastra-se</button></a>            
+            
+        </footer>  
+    </div>      
 </body>
 </html>
