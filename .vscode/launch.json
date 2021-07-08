@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AgilescheduleApplication<agileschedule>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "br.com.agileschedule.AgilescheduleApplication",
+            "projectName": "agileschedule",
+            "args": ""
+        }
+    ]
+}
