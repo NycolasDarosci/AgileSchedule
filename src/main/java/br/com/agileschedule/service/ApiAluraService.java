@@ -29,7 +29,7 @@ public class ApiAluraService {
         user.setTokenAlura("602d4fbb89b3f27bae02799e4ee06135dd705bd3d96bc141f8444b94f88e36c2");
         Mono<AluraForm> monoCourseProgress = this.webClientAlura
         		.method(HttpMethod.GET)
-        		.uri("/dashboard/{token}/", user.getTokenAlura())
+        		.uri("/dashboard/", user.getTokenAlura())
         		.retrieve()
         		.bodyToMono(AluraForm.class);
         AluraForm aluraF = monoCourseProgress.block();

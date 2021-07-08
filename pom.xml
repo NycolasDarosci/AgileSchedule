@@ -13,7 +13,7 @@
 	<artifactId>agileschedule</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>agileschedule</name>
-	<description>Agenda de Bolsista</description>
+	<description>Agile Schedule</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
