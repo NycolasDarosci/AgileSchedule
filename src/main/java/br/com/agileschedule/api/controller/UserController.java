@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -28,10 +29,15 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	@ModelAttribute("User")
+	public UpdateUserForm userForm() {
+		return new UpdateUserForm();
+	}
 
 	@PostMapping("/newUser")
 	public ResponseEntity<UserDTO> newUserController
-	(@RequestBody @Valid CreateUserForm cUserForm, UriComponentsBuilder builder) throws NotFoundException {
+	(@ModelAttribute ("User") @Valid CreateUserForm cUserForm, UriComponentsBuilder builder) throws NotFoundException {
 		
 		UserDTO user = userService.newUserService(cUserForm);
 		URI uri = builder.path("/cadastro/{id}").buildAndExpand(user.getId()).toUri();

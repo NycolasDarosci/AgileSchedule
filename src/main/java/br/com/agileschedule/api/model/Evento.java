@@ -2,6 +2,7 @@ package br.com.agileschedule.api.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -122,10 +123,26 @@ public class Evento {
 	public EventoDTO toDTO() {
 		return new EventoDTO(this);
 	}
+	
+	
+	public static List<EventoDTO> toListDTO(List<Evento> eventos) {
 
+        List<EventoDTO> eventosDTO = new ArrayList<EventoDTO>();
+        for (Evento evento : eventos) {
+            
+            EventoDTO eventoDTO = new EventoDTO();
+            
+            eventoDTO.setId(evento.id);
+            eventoDTO.setTitulo(evento.titulo);
+            eventoDTO.setDescricao(evento.descricao);
+            eventoDTO.setDiaInicial(evento.diaInicial);
+            eventoDTO.setDiaFinal(evento.diaFinal);
+            eventoDTO.setHoraInicial(evento.horaInicial);
+            eventoDTO.setHoraFinal(evento.horaFinal);
 
-	public static List<EventoDTO> toListDTO(List<Evento> evento) {
+            eventosDTO.add(eventoDTO);
+        }
 
-		return evento.stream().map(EventoDTO::new).toList();
-	}
+        return eventosDTO;
+    }
 }
