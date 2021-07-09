@@ -8,8 +8,8 @@ import javax.persistence.Id;
 
 import org.springframework.security.core.GrantedAuthority;
 
-@Entity(name = "TipoUser")
-public class TipoUser implements GrantedAuthority {
+@Entity(name = "Perfil")
+public class Perfil implements GrantedAuthority {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
