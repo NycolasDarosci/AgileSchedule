@@ -29,8 +29,11 @@ import javassist.NotFoundException;
 @Entity(name = "User")
 public class User implements UserDetails {
 
+	
+	private static final long serialVersionUID = 1L;
+
 	@Autowired
-	TipoUserRepository tipoUserRepository;
+	private TipoUserRepository tipoUserRepository;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -57,7 +60,7 @@ public class User implements UserDetails {
 	private String tokenAlura;
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
-	private Evento evento;
+	private List<Evento> evento;
 
 	@Column(name = "ativo")
 	private boolean ativo;

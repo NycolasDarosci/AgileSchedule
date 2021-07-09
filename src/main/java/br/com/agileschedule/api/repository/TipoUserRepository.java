@@ -8,6 +8,7 @@ import br.com.agileschedule.api.model.TipoUser;
 
 public interface TipoUserRepository extends JpaRepository<TipoUser, Long> {
 
-    Optional<TipoUser> findByDescricao(String descricao);
+	Optional<TipoUser> findByDescricao(String string);
+
     
 }

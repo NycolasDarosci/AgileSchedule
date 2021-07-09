@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" th:href="@{/css/cadastro.css}">
 </head>
 <body>
     <div class="container">
@@ -16,27 +17,27 @@
         <!-- FORMULARIO DE CADASTRO -->
         <h2>Cadastro</h2>
         <hr>
-        <form action="#" method="post" class="formulario">         
+        <form th:action="/login" method="POST" class="formulario" th:object="${User}">         
             <div class="input-block">
                 <label for="username"></label>
-                <input type="username" name="username" id="username" placeholder="Usuário">
+                <input type="text" name="username" th:field="*{username}" id="username" placeholder="Usuário">
             </div>
             <div class="input-block">
                 <label for="email"></label>
-                <input type="email" name="email" id="email" placeholder="Email">
+                <input type="email" name="email" th:field="*{email}" id="email" placeholder="Email">
             </div>
             <div class="input-block">
                 <label for="senha"></label>
-                <input type="password" name="senha" id="senha" placeholder="Senha">
+                <input type="password" name="senha" th:field="*{senha}" id="senha" placeholder="Senha">
             </div>
 
             <!-- Botão para criar uma conta-->
-            <a class="btn-criar" href="#"><button>Cadastrar</button></a>
+            <a class="btn-criar" ><button type="submit">Cadastrar</button></a>
                       
         </form>     
         <footer>
             <span>Já possui uma conta?</span>  
-            <a class="btn-cadastro" href="login.html"><button>Logar</button></a>
+            <a class="btn-cadastro" th:href="@{login}"><button>Logar</button></a>
         </footer>
     </div>
 </body>

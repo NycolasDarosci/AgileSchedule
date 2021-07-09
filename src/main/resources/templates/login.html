@@ -17,22 +17,25 @@
         <!-- FOMRULARIO DE LOGIN -->
         <h2>Login</h2>
         <hr>
-        <form action="#" method="post" class="formulario">
+        <form th:action="@{/login}" id="login" method="POST" class="formulario" th:object="${logado}">
+        <div th:if="${param.error}">
+        	<p> Usuário Inválido</p>
+        </div>
             <div class="input-block">
                 <label for="email"></label>
-                <input type="email" name="email" id="email" placeholder="Email">
+                <input type="email" name="email"  id="email" placeholder="Email" required>
             </div>
             <div class="input-block">
                 <label for="senha"></label>
-                <input type="password" name="senha" id="senha" placeholder="Senha">
+                <input type="password" name="senha" id="senha" placeholder="Senha" required>
             </div>
 
             <!-- botao para entrar na plataforma-->
-            <a class="btn-entrar" href="#"><button>Entrar</button></a>
+            <a class="btn-entrar"><button type="submit">Entrar</button></a>
         </form>
         <footer>    
             <span>Não possui conta?</span>
-            <a class="btn-login" href="cadastro.html"><button>Cadastra-se</button></a>            
+            <a class="btn-login" th:href="@{/cadastro}"><button>Cadastra-se</button></a>            
             
         </footer>  
     </div>      
