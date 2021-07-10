@@ -11,13 +11,13 @@ xmlns:th="http://www.thymeleaf.org">
 <body>
     <div class="container">
         <div class="div-block">
-            <img src="images/prototipo2.png" alt="">
+            <img th:src="@{images/prototipo2}" alt="">
             <h1>Agile Schedule</h1>
         </div> 
         <!-- FORMULARIO DE CADASTRO -->
         <h2>Cadastro</h2>
         <hr>
-        <form th:action="/login" method="POST" class="formulario" th:object="${User}">         
+        <form th:action="@{/login}" method="POST" class="formulario" th:object="${User}">         
             <div class="input-block">
                 <label for="username"></label>
                 <input type="text" name="username" th:field="*{username}" id="username" placeholder="Usuário">

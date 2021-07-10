@@ -29,11 +29,10 @@ import javassist.NotFoundException;
 @Entity(name = "User")
 public class User implements UserDetails {
 
-	
 	private static final long serialVersionUID = 1L;
 
-	@Autowired
-	private TipoUserRepository tipoUserRepository;
+	// @Autowired
+	// private TipoUserRepository tipoUserRepository;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,11 +48,7 @@ public class User implements UserDetails {
 	private String senha;
 
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(
-		name = "User_Has_TipoUser",
-		joinColumns = @JoinColumn(name = "idUser"),
-		inverseJoinColumns = @JoinColumn(name = "idTipoUser")
-	)
+	@JoinTable(name = "User_Has_TipoUser", joinColumns = @JoinColumn(name = "idUser"), inverseJoinColumns = @JoinColumn(name = "idTipoUser"))
 	private List<TipoUser> tipoUser = new ArrayList<TipoUser>();
 
 	@Column(name = "tokenAlura")
@@ -65,18 +60,15 @@ public class User implements UserDetails {
 	@Column(name = "ativo")
 	private boolean ativo;
 
-	public User() throws NotFoundException {
-		//Ao criar um usuário, por padrão seu tipo de usuário 
-		//será definido como usuário Comum
-		Optional<TipoUser> tipo = tipoUserRepository.findByDescricao("comum");
-		if(tipo.isEmpty()){
-			//Caso não tenha feito a inserção primária no banco de dados
-			//será jogada uma exception
-			throw new NotFoundException("TipoUsuario comum não encontrado, realize a "+
-			"inserção no banco de dados.");
-		}
-		this.tipoUser.add(tipo.get());
-	 }
+	/*
+	 * public User() throws NotFoundException { // Ao criar um usuário, por padrão
+	 * seu tipo de usuário // será definido como usuário Comum Optional<TipoUser>
+	 * tipo = tipoUserRepository.findByDescricao("comum"); if (tipo.isEmpty()) { //
+	 * Caso não tenha feito a inserção primária no banco de dados // será jogada uma
+	 * exception throw new
+	 * NotFoundException("TipoUsuario comum não encontrado, realize a " +
+	 * "inserção no banco de dados."); } this.tipoUser.add(tipo.get()); }
+	 */
 
 	public Long getId() {
 		return id;
@@ -109,7 +101,7 @@ public class User implements UserDetails {
 	}
 
 	public void setSenha(String senha) {
-		//Sempre que uma senha for definida, ela será criptografada.
+		// Sempre que uma senha for definida, ela será criptografada.
 		BCryptPasswordEncoder bCrypt = new BCryptPasswordEncoder();
 		this.senha = bCrypt.encode(senha);
 	}
