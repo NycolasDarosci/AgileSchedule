@@ -43,19 +43,19 @@ public class User implements UserDetails {
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 		name = "User_Has_Perfil",
-		joinColumns = @JoinColumn(name = "idUser"),
-		inverseJoinColumns = @JoinColumn(name = "idPerfil")
+		joinColumns = @JoinColumn(name = "user_id"),
+		inverseJoinColumns = @JoinColumn(name = "perfil_id")
 	)
 	private List<Perfil> perfis = new ArrayList<Perfil>();
 
-	@Column(name = "tokenAlura")
+	@Column(name = "token_alura")
 	private String tokenAlura;
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
-	private List<Evento> evento;
+	private List<Evento> eventos = new ArrayList<Evento>();
 
-	@Column(name = "ativo")
-	private boolean ativo;
+	@Column(name = "ativo", nullable = false)
+	private boolean ativo = true;
 
 	public Long getId() {
 		return id;

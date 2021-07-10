@@ -29,20 +29,20 @@ public class Evento {
 	@Column(name = "descricao")
 	private String descricao;
 
-	@Column(name = "diaInicial")
+	@Column(name = "dia_inicial")
 	private LocalDate diaInicial;
 
-	@Column(name = "diaFinal")
+	@Column(name = "dia_final")
 	private LocalDate diaFinal;
 
-	@Column(name = "horaInicial")
+	@Column(name = "hora_inicial")
 	private LocalTime horaInicial;
 
-	@Column(name = "horaFinal")
+	@Column(name = "hora_final")
 	private LocalTime horaFinal;
 
 	@ManyToOne
-	@JoinColumn(name = "idUser")
+	@JoinColumn(name = "user_id")
 	private User user;
 
 	public Evento(EventoForm eForm) {
