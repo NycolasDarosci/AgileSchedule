@@ -7,6 +7,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -38,7 +39,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
     	http.authorizeRequests()
-        .antMatchers("/", "/js/**", "/css/**", "/img/**").permitAll()
         .antMatchers(HttpMethod.GET, "/cadastro").permitAll()
         .antMatchers(HttpMethod.GET, "/cadastro*").permitAll()
         .antMatchers(HttpMethod.POST, "/cadastro").permitAll()
@@ -51,4 +51,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .and().logout()
         .logoutRequestMatcher(new AntPathRequestMatcher("/")).logoutSuccessUrl("/").permitAll();
     }
+
+    @Override
+	public void configure(WebSecurity web) throws Exception {
+		web.ignoring().antMatchers("/**.html", "/css/**", "/images/**", "/img/**", "/js/**", "/h2-console/**" ,"/v2/api-docs", "/webjars/**", "/configuration/**", "/swagger-resources/**", "/swagger.json", "/swagger-ui.html");
+	} 
 }

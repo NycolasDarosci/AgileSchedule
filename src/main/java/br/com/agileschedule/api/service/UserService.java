@@ -7,6 +7,7 @@ import br.com.agileschedule.api.dto.UserDTO;
 import br.com.agileschedule.api.form.CreateUserForm;
 import br.com.agileschedule.api.form.UpdateUserForm;
 import br.com.agileschedule.api.model.User;
+import br.com.agileschedule.api.repository.PerfilRepository;
 import br.com.agileschedule.api.repository.UserRepository;
 import javassist.NotFoundException;
 
@@ -16,10 +17,16 @@ public class UserService {
 	@Autowired
 	UserRepository userRepository;
 	
+	@Autowired
+	PerfilRepository perfilRepository;
 
 	public UserDTO newUserService(CreateUserForm createUserForm) throws NotFoundException {
+		
 		//Dentro do User a senha será criptografada
 		User user = createUserForm.toUser();
+		
+		//Defindo o perfil do usuário como um usuário comum
+		user.getPerfis().add(perfilRepository.findByDescricao("comum").get());
 		userRepository.save(user);
 		return user.toDTO();
 	}

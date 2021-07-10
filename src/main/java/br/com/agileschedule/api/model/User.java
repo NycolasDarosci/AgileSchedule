@@ -3,7 +3,6 @@ package br.com.agileschedule.api.model;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,25 +16,18 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import br.com.agileschedule.api.dto.UserDTO;
-import br.com.agileschedule.api.repository.TipoUserRepository;
-import javassist.NotFoundException;
 
 @Entity(name = "User")
 public class User implements UserDetails {
 
-	private static final long serialVersionUID = 1L;
-
-	// @Autowired
-	// private TipoUserRepository tipoUserRepository;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(nullable = false)
 	private Long id;
 
 	@Column(name = "nome", nullable = false)
@@ -48,27 +40,17 @@ public class User implements UserDetails {
 	private String senha;
 
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "User_Has_TipoUser", joinColumns = @JoinColumn(name = "idUser"), inverseJoinColumns = @JoinColumn(name = "idTipoUser"))
-	private List<TipoUser> tipoUser = new ArrayList<TipoUser>();
+	@JoinTable(name = "User_Has_Perfil", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "perfil_id"))
+	private List<Perfil> perfis = new ArrayList<Perfil>();
 
-	@Column(name = "tokenAlura")
+	@Column(name = "token_alura")
 	private String tokenAlura;
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
-	private List<Evento> evento;
+	private List<Evento> eventos = new ArrayList<Evento>();
 
-	@Column(name = "ativo")
-	private boolean ativo;
-
-	/*
-	 * public User() throws NotFoundException { // Ao criar um usuário, por padrão
-	 * seu tipo de usuário // será definido como usuário Comum Optional<TipoUser>
-	 * tipo = tipoUserRepository.findByDescricao("comum"); if (tipo.isEmpty()) { //
-	 * Caso não tenha feito a inserção primária no banco de dados // será jogada uma
-	 * exception throw new
-	 * NotFoundException("TipoUsuario comum não encontrado, realize a " +
-	 * "inserção no banco de dados."); } this.tipoUser.add(tipo.get()); }
-	 */
+	@Column(name = "ativo", nullable = false)
+	private boolean ativo = true;
 
 	public Long getId() {
 		return id;
@@ -114,17 +96,17 @@ public class User implements UserDetails {
 		this.tokenAlura = tokenAlura;
 	}
 
-	public List<TipoUser> getTipoUser() {
-		return this.tipoUser;
+	public List<Perfil> getPerfis() {
+		return this.perfis;
 	}
 
-	public void setTipoUser(List<TipoUser> tipoUser) {
-		this.tipoUser = tipoUser;
+	public void setPerfis(List<Perfil> perfis) {
+		this.perfis = perfis;
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return this.tipoUser;
+		return this.perfis;
 	}
 
 	@Override

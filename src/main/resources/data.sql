@@ -1,3 +1,3 @@
-INSERT INTO USER (nome, email, senha, ativo) VALUES ('nomeuser1', 'emailuser1', 'senha não criptografada', true);
-INSERT INTO TIPOUSER (descricao) VALUES ('comum');
-INSERT INTO TIPOUSER (idUser, idTipoUser) VALUES (1, 1);
+INSERT INTO Perfil (descricao) VALUES ('ADM'), ('Cliente');
+INSERT INTO User (nome, email, senha, ativo) VALUES ('Exemplo1', 'exemplo@compasso.com.br', 'senha não criptografada', true);
+INSERT INTO User_Has_Perfil (user_id, perfil_id) VALUES (1, 1);
