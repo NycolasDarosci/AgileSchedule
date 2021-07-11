@@ -9,7 +9,7 @@ ou pelo nosso Twitter: [https://twitter.com/ScheduleAgile]
 Fique a vontade para conversar conosco, Você será bem vindo(a)!
 
 Desenvolvedores:
-- Andrey Gabriel Coradin, Email: [andrey_coradin@hotmail.com]
-- Nycolas Alberto Darosci, Email: [nycoollaas@gmail.com]
-- Jorge Massao Soares do Amaral, Email: [jorgemassaosoares@gmail.com]
-- Yasmin Wichinievski Zimermann, Email: [yasmin.wichinievski@gmail.com]
+- Andrey Gabriel Coradin, Email: andrey_coradin@hotmail.com
+- Nycolas Alberto Darosci, Email: nycoollaas@gmail.com
+- Jorge Massao Soares do Amaral, Email: jorgemassaosoares@gmail.com
+- Yasmin Wichinievski Zimermann, Email: yasmin.wichinievski@gmail.com
