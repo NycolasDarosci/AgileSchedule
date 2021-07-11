@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" th:href="@{/css/login.css}" />
 </head>
 <body>
     
     <div class="container">
         <div class="div-block">
-            <img src="@{/images/prototipo2.png}" alt="">
+            <img th:src="@{/images/prototipo2.png}"/>
             <h1>Agile Schedule</h1>
         </div>    
         <!-- FOMRULARIO DE LOGIN -->
@@ -19,15 +19,17 @@
         <hr>
         <form th:action="@{/login}" id="login" method="POST" class="formulario" th:object="${logado}">
         <div th:if="${param.error}">
-        	<p> Usuário Inválido</p>
+        	<p>Usuário Inválido</p>
         </div>
             <div class="input-block">
-                <label for="email"></label>
-                <input type="email" name="email"  id="email" placeholder="Email" required>
+                <label for="email">
+                	<input type="email" name="email"  id="email" placeholder="Email" required>
+                </label>
             </div>
             <div class="input-block">
-                <label for="senha"></label>
-                <input type="password" name="senha" id="senha" placeholder="Senha" required>
+                <label for="senha">
+                	<input type="password" name="senha" id="senha" placeholder="Senha" required>
+                </label>
             </div>
 
             <!-- botao para entrar na plataforma-->
@@ -35,7 +37,7 @@
         </form>
         <footer>    
             <span>Não possui conta?</span>
-            <a class="btn-login"><button th:href="@{cadastro}">Cadastra-se</button></a>            
+            <a class="btn-login" th:href="@{/cadastro}"><button>Cadastra-se</button></a>            
             
         </footer>  
     </div>      

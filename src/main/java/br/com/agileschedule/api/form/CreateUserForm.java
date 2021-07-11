@@ -3,6 +3,8 @@ package br.com.agileschedule.api.form;
 import javax.validation.constraints.NotBlank;
 
 import br.com.agileschedule.api.model.User;
+import br.com.agileschedule.api.repository.PerfilRepository;
+import br.com.agileschedule.api.repository.UserRepository;
 import javassist.NotFoundException;
 
 public class CreateUserForm {
@@ -25,12 +27,28 @@ public class CreateUserForm {
 	public String getSenha() {
 		return senha;
 	}
+	
 
-	public User toUser() throws NotFoundException {
-		User user = new User();
-		user.setNome(this.nome);
-		user.setEmail(this.email);
-		user.setSenha(this.senha);
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public User toUser(UserRepository userRepository, PerfilRepository perfilRepository) throws NotFoundException {
+		User user = new User(nome, email, senha);
+		user.getPerfis().add(perfilRepository.findByDescricao("Cliente").get());
+		userRepository.save(user);
 		return user;
 	}
+
+	
+
+	
 }

@@ -1,43 +1,45 @@
 <!DOCTYPE html>
-<html lang="en"
-xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" th:href="@{/css/cadastro.css}">
+    <link rel="stylesheet" th:href="@{/css/cadastro.css}"/>
 </head>
 <body>
     <div class="container">
         <div class="div-block">
-            <img th:src="@{images/prototipo2}" alt="">
+            <img th:src="@{/images/prototipo2.png}"/>
             <h1>Agile Schedule</h1>
         </div> 
         <!-- FORMULARIO DE CADASTRO -->
         <h2>Cadastro</h2>
         <hr>
-        <form th:action="@{/login}" method="POST" class="formulario" th:object="${User}">         
+        <form th:action="@{/cadastro}" method="POST" class="formulario" th:object="${User}">         
             <div class="input-block">
-                <label for="username"></label>
-                <input type="text" name="username" th:field="*{username}" id="username" placeholder="Usuário">
+                <label for="name">
+              		<input type="text" name="nome" th:field="*{nome}" id="nome" placeholder="Usuário">
+                </label>
             </div>
             <div class="input-block">
-                <label for="email"></label>
-                <input type="email" name="email" th:field="*{email}" id="email" placeholder="Email">
+                <label for="email">
+                	<input type="email" name="email" th:field="*{email}" id="email" placeholder="Email">
+                </label>
             </div>
             <div class="input-block">
-                <label for="senha"></label>
-                <input type="password" name="senha" th:field="*{senha}" id="senha" placeholder="Senha">
+                <label for="senha">
+                	<input type="password" name="senha" th:field="*{senha}" id="senha" placeholder="Senha">
+                </label>
             </div>
 
             <!-- Botão para criar uma conta-->
-            <a class="btn-criar" ><button type="submit">Cadastrar</button></a>
+            <button class="btn-criar" type="submit">Cadastrar</button>
                       
         </form>     
         <footer>
             <span>Já possui uma conta?</span>  
-            <a class="btn-cadastro" th:href="@{login}"><button>Logar</button></a>
+            <a class="btn-cadastro" th:href="@{/login}"><button>Logar</button></a>
         </footer>
     </div>
 </body>
