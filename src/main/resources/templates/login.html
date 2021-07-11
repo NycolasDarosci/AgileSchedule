@@ -11,29 +11,29 @@
     
     <div class="container">
         <div class="div-block">
-            <img th:src="@{/images/prototipo2.png}"/>
+            <img th:src="@{/img/prototipo2.png}"/>
             <h1>Agile Schedule</h1>
         </div>    
         <!-- FOMRULARIO DE LOGIN -->
         <h2>Login</h2>
         <hr>
-        <form th:action="@{/login}" id="login" method="POST" class="formulario" th:object="${logado}">
+        <form th:action="@{/login}" id="login" method="POST" class="formulario">
         <div th:if="${param.error}">
         	<p>Usuário Inválido</p>
         </div>
             <div class="input-block">
                 <label for="email">
-                	<input type="email" name="email"  id="email" placeholder="Email" required>
+                	<input type="text" name="email"  id="username" placeholder="Email" required>
                 </label>
             </div>
             <div class="input-block">
                 <label for="senha">
-                	<input type="password" name="senha" id="senha" placeholder="Senha" required>
+                	<input type="password" name="password" id="password" placeholder="Senha" required>
                 </label>
             </div>
 
             <!-- botao para entrar na plataforma-->
-            <a class="btn-entrar"><button type="submit">Entrar</button></a>
+            <button class="btn" type="submit">Entrar</button>
         </form>
         <footer>    
             <span>Não possui conta?</span>
