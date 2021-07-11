@@ -1,6 +1,7 @@
 package br.com.agileschedule.api.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.agileschedule.api.dto.UserDTO;
@@ -20,15 +21,12 @@ public class UserService {
 	@Autowired
 	PerfilRepository perfilRepository;
 
-	public UserDTO newUserService(CreateUserForm createUserForm) throws NotFoundException {
-		
-		//Dentro do User a senha será criptografada
-		User user = createUserForm.toUser();
-		
-		//Defindo o perfil do usuário como um usuário comum
-		user.getPerfis().add(perfilRepository.findByDescricao("comum").get());
-		userRepository.save(user);
-		return user.toDTO();
+	public User newUserService(CreateUserForm createUserForm) throws NotFoundException {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String encodePassword = encoder.encode(createUserForm.getSenha());	
+		createUserForm.setSenha(encodePassword);
+		User user = createUserForm.toUser(userRepository, perfilRepository);
+		return user;
 	}
 
 	
