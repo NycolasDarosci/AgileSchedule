@@ -47,7 +47,7 @@ public class User {
 	private List<Evento> eventos = new ArrayList<Evento>();
 
 	@Column(name = "ativo", nullable = false)
-	private boolean ativo = false;
+	private boolean ativo = true;
 
 	@Column(name = "token_email", unique = true, updatable = false)
 	private String tokenEmail;
@@ -116,7 +116,6 @@ public class User {
 	public boolean getAtivo() {
 		return this.ativo;
 	}
-
 
 	public String getTokenEmail() {
 		return this.tokenEmail;

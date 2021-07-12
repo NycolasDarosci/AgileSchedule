@@ -47,7 +47,7 @@ input{
 }
 
 .btn button{
-    background-color: #167e56;
+    background-color: #ffae5d;
     margin-right: 2rem; 
     height: 5rem;
     width: 5rem;
@@ -71,7 +71,7 @@ input{
 .month{
     width:100%;
     height:12rem;
-    background-color:#167e56;
+    background-color:#ffae5d;
     display: flex;
     justify-content: space-between;
     align-items: center;
