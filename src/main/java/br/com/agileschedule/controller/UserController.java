@@ -1,6 +1,5 @@
 package br.com.agileschedule.controller;
 
-import java.net.URI;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -13,16 +12,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.agileschedule.dto.EventoDTO;
-import br.com.agileschedule.dto.UserDTO;
 import br.com.agileschedule.form.EventoForm;
 import br.com.agileschedule.form.UpdateUserForm;
 import br.com.agileschedule.model.Evento;
@@ -52,9 +46,9 @@ public class UserController {
 		return new ModelAndView("index");
 	}
 
-	@PatchMapping("/updateTokenAlura")
+	@PostMapping("/updateTokenAlura")
 	@Transactional
-	public ResponseEntity<Void> updateTokenAluraController(@RequestBody @Valid UpdateUserForm updUserForm)
+	public ResponseEntity<Void> updateTokenAluraController(@ModelAttribute ("UpdateUserForm") UpdateUserForm updUserForm)
 			throws NotFoundException {
 
 		userService.updateTokenAluraService(updUserForm);

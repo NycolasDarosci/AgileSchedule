@@ -9,6 +9,7 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -110,29 +111,28 @@ public class UserService {
 		user = userRepository.findById(user.getId()).orElseThrow(() -> new NotFoundException("Usuário inválido."));
 		
 		//Verificando se o usuário atualizou algum campo e atualizando
-		String nome = updUserForm.getNome();
-		String email = updUserForm.getEmail();
-		String senha = updUserForm.getSenha();
-		if(nome != null) {
-			user.setNome(updUserForm.getNome());
-		}
-		if(email != null) {
-			user.setEmail(email);
-		}
-		if(senha != null) {
-			user.setSenha(senha);
-		}
+		// String nome = updUserForm.getNome();
+		// String email = updUserForm.getEmail();
+		// String senha = updUserForm.getSenha();
+		// if(nome != null) {
+		// 	user.setNome(updUserForm.getNome());
+		// }
+		// if(email != null) {
+		// 	user.setEmail(email);
+		// }
+		// if(senha != null) {
+		// 	user.setSenha(senha);
+		// }
 		return user.toDTO();
 	}
 
 
 	public void updateTokenAluraService(UpdateUserForm updUserForm) throws NotFoundException {
 
-		//User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		User user = new User();
-		user.setId(1L);
+		CustomUserDetails userD = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-		user = userRepository.findById(user.getId()).orElseThrow(() -> new NotFoundException("Usuário inválido."));
+
+		User user = userRepository.findByEmail(userD.getUsername()).orElseThrow(() -> new NotFoundException("Usuário inválido."));
 		
 		user.setTokenAlura(updUserForm.getTokenAlura());
 	}
