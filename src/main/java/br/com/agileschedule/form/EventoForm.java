@@ -28,12 +28,12 @@ public class EventoForm {
 
 	private LocalTime horaFinal;
 
-
-//	public EventoForm() {
-//		if(this.diainicial.isAfter(this.diafinal)) {
-//			throw new ValidationException("Dia final não pode ser anterior ao dia inicial.");
-//		}
-	//}
+	// public EventoForm() {
+	// if(this.diainicial.isAfter(this.diafinal)) {
+	// throw new ValidationException("Dia final não pode ser anterior ao dia
+	// inicial.");
+	// }
+	// }
 	public String getTitulo() {
 		return this.titulo;
 	}
@@ -57,22 +57,27 @@ public class EventoForm {
 	public LocalTime getHoraFinal() {
 		return horaFinal;
 	}
-	
+
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
 	public void setDiaInicial(LocalDate diaInicial) {
 		this.diaInicial = diaInicial;
 	}
+
 	public void setDiaFinal(LocalDate diaFinal) {
 		this.diaFinal = diaFinal;
 	}
+
 	public void setHoraInicial(LocalTime horaInicial) {
 		this.horaInicial = horaInicial;
 	}
+
 	public void setHoraFinal(LocalTime horaFinal) {
 		this.horaFinal = horaFinal;
 	}
@@ -81,7 +86,7 @@ public class EventoForm {
 		return new Evento(this);
 	}
 
-    public Evento toEvento() {
+	public Evento toEvento() {
 		return new Evento(this);
 	}
 }

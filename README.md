@@ -15,4 +15,3 @@ Desenvolvedores:
 - Nycolas Alberto Darosci, Email: nycoollaas@gmail.com
 - Jorge Massao Soares do Amaral, Email: jorgemassaosoares@gmail.com
 - Yasmin Wichinievski Zimermann, Email: yasmin.wichinievski@gmail.com
-

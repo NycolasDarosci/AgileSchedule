@@ -9,9 +9,9 @@ const notificacao = () => {
     // defini às horas como 12
     // defini os minutos como 30
     // defini os segundos como 0
-    amanha.setDate(amanha.getDate() + 1) 
-    amanha.setHours(12) 
-    amanha.setMinutes(30) 
+    amanha.setDate(amanha.getDate()) 
+    amanha.setHours(01) 
+    amanha.setMinutes(40) 
     amanha.setSeconds(0) 
 
     // pegando intervalo entre data atual e data de amanha e diminuindo 

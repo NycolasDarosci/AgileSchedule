@@ -1,7 +1,7 @@
 
 // fazer uma logica em que o usuário, ao colocar o token em um input
 // e apertar um botão, as informações da Alura aparecem na view
-const tokenAlura = 'a3ad5d3746cb35cdc661658a305820aba29f7173aac2f1b43d24dee325c13f4c'
+const tokenAlura = document.getElementById('tokenAlura')
 
 const url = `https://www.alura.com.br/api/dashboard/${tokenAlura}`
 

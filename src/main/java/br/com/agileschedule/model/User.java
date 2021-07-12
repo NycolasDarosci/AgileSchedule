@@ -20,7 +20,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import br.com.agileschedule.dto.UserDTO;
 
 @Entity(name = "User")
-public class User{
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -96,7 +96,7 @@ public class User{
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
 	}
-	
+
 	public List<Evento> getEventos() {
 		return eventos;
 	}
@@ -116,7 +116,6 @@ public class User{
 	public boolean getAtivo() {
 		return this.ativo;
 	}
-
 
 	public String getTokenEmail() {
 		return this.tokenEmail;

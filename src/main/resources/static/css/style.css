@@ -30,10 +30,6 @@ html{
     background-color: #d0f7e8;
 }
 
-.formulario{
-
-}
-
 input{
     border: none;
     background-color: white;
@@ -42,12 +38,8 @@ input{
     padding: 1rem;   
 }
 
-.btn{
-    
-}
-
 .btn button{
-    background-color: #167e56;
+    background-color: #ffae5d;
     margin-right: 2rem; 
     height: 5rem;
     width: 5rem;
@@ -71,7 +63,7 @@ input{
 .month{
     width:100%;
     height:12rem;
-    background-color:#167e56;
+    background-color:#d67f28;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -146,5 +138,5 @@ input{
 }
 
 .today{
-    background-color: #167e56;
+    background-color: #d67f28;
 }

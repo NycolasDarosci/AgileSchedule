@@ -36,10 +36,10 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private EventoRepository eventoRepository;
-	
+
 	@Autowired
 	EventoService eventoService;
 	
@@ -48,48 +48,42 @@ public class UserController {
 	public ModelAndView pageIndex(Model model) {
 		eventoss();
 		newEventoForm();
+		newUserForm();
 		return new ModelAndView("index");
-	}
-
-
-	@PutMapping("/updateUser")
-	@Transactional
-	public ResponseEntity<UserDTO> updateUserController
-	(@RequestBody UpdateUserForm updUserForm) throws NotFoundException {
-		
-		return ResponseEntity.ok(userService.updateUserService(updUserForm));
 	}
 
 	@PatchMapping("/updateTokenAlura")
 	@Transactional
-	public ResponseEntity<Void> updateTokenAluraController
-	(@RequestBody @Valid UpdateUserForm updUserForm) throws NotFoundException {
+	public ResponseEntity<Void> updateTokenAluraController(@RequestBody @Valid UpdateUserForm updUserForm)
+			throws NotFoundException {
 
 		userService.updateTokenAluraService(updUserForm);
 		return ResponseEntity.ok().build();
 	}
 
-
 	@PatchMapping("/disableUser")
 	@Transactional
-	public ResponseEntity<Void> disableUserController
-	(@RequestParam(required = true) Long idUser) throws NotFoundException {
-		
+	public ResponseEntity<Void> disableUserController(@RequestParam(required = true) Long idUser)
+			throws NotFoundException {
+
 		userService.disableUserService(idUser);
 		return ResponseEntity.ok().build();
 	}
-	
+
 	@ModelAttribute("Evento")
-	public EventoForm newEventoForm(){
+	public EventoForm newEventoForm() {
 		return new EventoForm();
 	}
-	
+
 	@ModelAttribute("eventoss")
-	public List<Evento> eventoss(){
+	public List<Evento> eventoss() {
 		List<Evento> eventos = eventoRepository.findAll();
 		return eventos;
 	}
-		
-		
+
+	@ModelAttribute("UpdateUserForm")
+	private UpdateUserForm newUserForm() {
+		return new UpdateUserForm();
+	}
 
 }
