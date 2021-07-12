@@ -27,7 +27,7 @@ public class SwaggerConfig {
 
     private ApiInfo metaInfo() {
         ApiInfo apiInfo = new ApiInfo("AgileSchedule", "Sistema de gerenciamento dos estagiarios",
-                "Criado pela Squad-4", "Terms",
+                "Criado pela Squad-3", "Terms",
                 new Contact("Sptint4-SpringBoot", "https://github.com/NycolasDarosci/AgileSchedule", null), null, null,
                 new ArrayList<VendorExtension>());
         return apiInfo;
