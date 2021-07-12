@@ -47,7 +47,7 @@ public class User {
 	private List<Evento> eventos = new ArrayList<Evento>();
 
 	@Column(name = "ativo", nullable = false)
-	private boolean ativo = true;
+	private boolean ativo = false;
 
 	@Column(name = "token_email", unique = true, updatable = false)
 	private String tokenEmail;
