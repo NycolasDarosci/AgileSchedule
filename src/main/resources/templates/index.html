@@ -8,15 +8,24 @@ xmlns:th="http://www.thymeleaf.org"
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bolsa Calendário</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/evento.css}">
 </head>
 
 <body>
+	<nav>
+		<a th:href="@{/https://www.alura.com.br/}" class="textColor"><li>Alura</li></a>
+		<a class="textColor" onclick="sair();"><li>Log-out</li></a>
+		<a class="textColor"><li>[[${#request.remoteUser}]]</li></a>
+	</nav>
+	<div id='clock'></div>
+    
+    
     <div class="container">
 
         <div id='clock'></div>
     
         <div class="btn">
-            <button>+</button>
+            <button onclick="Modal.open()">+</button>
         </div>
         <div class="calendar">
             <div class="month">
@@ -41,8 +50,80 @@ xmlns:th="http://www.thymeleaf.org"
         </div>   
         
     </div>
+	
+	
+        
 
-    <script th:src="@{/js/script.js}"></script>
-    <script th:src="@{/js/notificacao.js}"></script>
+        <div class="modal-overlay">
+            <div class="modal">
+                <div id="form">
+                    <h2>Novo Evento</h2>
+
+                    <!-- <form onsubmit="Form.submit(event)"> -->
+                   	 <form th:action="@{/register}" method="POST" th:object="${EventoForm}">
+                        <div class="input-group">
+                            <label for="titulo">
+                                <input type="text" th:field="*{titulo}" name="titulo" id="titulo" placeholder="Título do Evento"/>
+                            </label>
+                        </div>
+                        <div class="input-group">
+                            <label for="descricao">
+                                <input id="descricao" name="descricao" type="text" th:field="*{descricao}" placeholder="Descrição"/>
+                            </label>
+                        </div>
+                        <div class="input-group">
+                            <label for="diainicial">
+                                <small>Data de início</small>
+                                <input id="diainicial" name="diainicial" type="date" th:field="*{diainicial}"/>
+                            </label>
+                        </div>
+						<div class="input-group">
+                            <label for="diafinal">
+                                <small>Data de fim</small>
+                                <input id="diafinal" name="diafinal" type="date" th:field="*{diafinal}"/>
+                            </label>
+                        </div>
+                        <div class="input-group">
+                            <label for="horainicial">
+                                <input id="horainicial" name="horainicial" type="text" th:field="*{horainicial}"/>
+                                <small>Neste formato: 00:00:00</small>
+                            </label>
+                        </div>
+                        <div class="input-group">
+                            <label for="horafinal">
+                                <input id="horafinal" name="horafinal" type="text" th:field="*{horafinal}"/>
+                                <small>Neste formato: 00:00:00</small>
+                            </label>
+                        </div>
+                        <div class="input-group actions">
+                            <a class="button cancel" onclick="Modal.close()">Cancelar</a>
+                            <button type="submit">Salvar</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+    <div>
+		<div>
+			<div th:each="evento : ${eventoss}">
+				<input type="text" th:value="${evento.titulo}" readonly /> 
+				<input type="text" th:value="${evento.descricao}" readonly />
+				<input type="text" th:value="${evento.diaInicial}" readonly />
+				<input type="text" th:value="${evento.diaFinal}" readonly />
+				<input type="text" th:value="${evento.horaInicial}" readonly />
+				<input type="text" th:value="${evento.horaFinal}" readonly />
+				<button>Aligenigena</button>
+			</div>
+		</div>
+	</div>
+
+	
 </body>
+	<script th:src="@{/js/evento.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
+    <script th:src="@{/js/logout.js}"></script>
+    <script th:src="@{/js/notificacao.js}"></script>
+	<script th:src="@{/https://unpkg.com/sweetalert/dist/sweetalert.min.js}"></script>
 </html>

@@ -16,21 +16,21 @@ public class EventoForm {
 	private String descricao;
 
 	@NotBlank
-	private LocalDate diaInicial;
+	private LocalDate diainicial;
 
-	private LocalDate diaFinal;
+	private LocalDate diafinal;
 
 	@NotBlank
-	private LocalTime horaInicial;
+	private LocalTime horainicial;
 
-	private LocalTime horaFinal;
+	private LocalTime horafinal;
 
 
-	public EventoForm() {
-		if(this.diaInicial.isAfter(this.diaFinal)) {
-			throw new ValidationException("Dia final não pode ser anterior ao dia inicial.");
-		}
-	}
+//	public EventoForm() {
+//		if(this.diainicial.isAfter(this.diafinal)) {
+//			throw new ValidationException("Dia final não pode ser anterior ao dia inicial.");
+//		}
+	//}
 	public String getTitulo() {
 		return this.titulo;
 	}
@@ -40,19 +40,19 @@ public class EventoForm {
 	}
 
 	public LocalDate getDiaInicial() {
-		return diaInicial;
+		return diainicial;
 	}
 
 	public LocalDate getDiaFinal() {
-		return diaFinal;
+		return diafinal;
 	}
 
 	public LocalTime getHoraInicial() {
-		return horaInicial;
+		return horainicial;
 	}
 
 	public LocalTime getHoraFinal() {
-		return horaFinal;
+		return horafinal;
 	}
 
 	public Evento toEvento() {
