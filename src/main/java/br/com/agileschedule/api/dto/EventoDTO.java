@@ -3,7 +3,8 @@ package br.com.agileschedule.api.dto;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import br.com.agileschedule.api.model.Evento;
+import br.com.agileschedule.model.Evento;
+
 
 public class EventoDTO {
 
