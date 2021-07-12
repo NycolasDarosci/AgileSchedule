@@ -30,20 +30,12 @@ html{
     background-color: #d0f7e8;
 }
 
-.formulario{
-
-}
-
 input{
     border: none;
     background-color: white;
     border-radius: 0.25rem;
     width: 30%;
     padding: 1rem;   
-}
-
-.btn{
-    
 }
 
 .btn button{
