@@ -20,7 +20,7 @@ xmlns:th="http://www.thymeleaf.org"
 
     
 	<div id="lista"></div>
-    <form th:action="@{/updateToken}" method="PUT" th:object="${UpdateUserForm}">
+    <form th:action="@{/updateToken}" method="GET" th:object="${UpdateUserForm}">
         <div class="input-group">
             <label for="tokenAlura">
                 <small>Token</small>

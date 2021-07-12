@@ -55,7 +55,7 @@ public class UserController {
 
 	// @RequestMapping(value = "/updateToken", method = RequestMethod.PUT)
 	@Transactional
-	@PutMapping(value = "/updateToken")
+	@GetMapping(value = "/updateToken")
 	public ResponseEntity<UserDTO> updateUserController(@ModelAttribute("UpdateUserForm") UpdateUserForm updUserForm)
 			throws NotFoundException {
 
