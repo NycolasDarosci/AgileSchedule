@@ -32,7 +32,6 @@ import br.com.agileschedule.service.UserService;
 import javassist.NotFoundException;
 
 @Controller
-@RequestMapping("/api")
 public class UserController {
 
 	@Autowired
@@ -45,24 +44,11 @@ public class UserController {
 	EventoService eventoService;
 	
 	
-	@GetMapping
+	@GetMapping("/evento")
 	public ModelAndView pageIndex(Model model) {
 		eventoss();
 		newEventoForm();
 		return new ModelAndView("index");
-	}
-	
-	@RequestMapping(value = "/evento", method = RequestMethod.POST)
-	public String newEventoController(@ModelAttribute ("EventoForm")EventoForm eventoForm, UriComponentsBuilder builder) throws NotFoundException {
-		
-		//Criando o evento e o retornando em DTO
-		EventoDTO eventoDTO = eventoService.newEventoService(eventoForm);
-
-		//Criando um recurso com o id do evento criado
-		URI uri = builder.path("/api/{id}").buildAndExpand(eventoDTO.getId()).toUri();
-		
-		return "index";
-		//ResponseEntity.created(uri).body(eventoDTO);
 	}
 
 
