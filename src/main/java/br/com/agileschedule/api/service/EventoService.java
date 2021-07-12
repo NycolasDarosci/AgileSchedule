@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import br.com.agileschedule.api.dto.EventoDTO;
@@ -21,10 +22,10 @@ public class EventoService {
 
 	public List<EventoDTO> listEventoService() throws NotFoundException {
 		//Pegando usuário logado
-		//User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		
-		User user = new User();
-		user.setId(1L);
+//		User user = new User();
+//		user.setId(1L);
 
 		//Buscando o calendário deste usuário por seu id
 		List<Evento> evento = eventoR.findByUserId(user.getId());
@@ -36,9 +37,10 @@ public class EventoService {
 
 	public EventoDTO newEventoService(EventoForm eventoForm) throws NotFoundException {
 
-		//User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		User user = new User();
-		user.setId(1L);
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		//.getUsername
+//		User user = new User();
+//		user.setId(1L);
 
 		Evento evento = eventoForm.toEvento();
 		//Definindo usuário que criou o evento como o usuário logado
@@ -52,9 +54,9 @@ public class EventoService {
 
 	public EventoDTO updateEventoService(Long id, EventoForm eventoForm) throws NotFoundException {
 		
-		//User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		User user = new User();
-		user.setId(1L);
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//		User user = new User();
+//		user.setId(1L);
 
 		// Encontra o evento no banco de dados
 		Evento evento = eventoR.findById(id).orElseThrow(() -> new NotFoundException("Evento não encontrado!"));
@@ -77,9 +79,9 @@ public class EventoService {
 
 	public void deleteEventoService(Long id) throws NotFoundException {
 		
-		//User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		User user = new User();
-		user.setId(1L);	
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//		User user = new User();
+//		user.setId(1L);	
 
 		Evento evento = eventoR.findById(id).orElseThrow(() -> new NotFoundException("Evento não encontrado!"));
 		

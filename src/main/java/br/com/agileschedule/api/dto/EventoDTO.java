@@ -13,13 +13,13 @@ public class EventoDTO {
 
 	private String descricao;
 
-	private LocalDate diaInicial;
+	private LocalDate diainicial;
 
-	private LocalDate diaFinal;
+	private LocalDate diafinal;
 
-	private LocalTime horaInicial;
+	private LocalTime horainicial;
 
-	private LocalTime horaFinal;
+	private LocalTime horafinal;
 
 
 	public EventoDTO() { }
@@ -27,10 +27,10 @@ public class EventoDTO {
 	public EventoDTO(Evento evento){ 
 		this.id = evento.getId();
 		this.titulo = evento.getTitulo();
-		this.diaInicial = evento.getDiaInicial();
-		this.diaFinal = evento.getDiaFinal();
-		this.horaInicial = evento.getHoraInicial();
-		this.horaFinal = evento.getHoraFinal();
+		this.diainicial = evento.getDiaInicial();
+		this.diafinal = evento.getDiaFinal();
+		this.horainicial = evento.getHoraInicial();
+		this.horafinal = evento.getHoraFinal();
 		this.descricao = evento.getDescricao();
 	}
 
@@ -43,19 +43,19 @@ public class EventoDTO {
 	}
 
 	public LocalDate getDiaInicial() {
-		return diaInicial;
+		return diainicial;
 	}
 
 	public LocalDate getDiaFinal() {
-		return diaFinal;
+		return diafinal;
 	}
 
 	public LocalTime getHoraInicial() {
-		return horaInicial;
+		return horainicial;
 	}
 
 	public LocalTime getHoraFinal() {
-		return horaFinal;
+		return horafinal;
 	}
 
 	public String getDescricao() {
@@ -75,18 +75,18 @@ public class EventoDTO {
 	}	
 
 	public void setDiaInicial(LocalDate diaInicial) {
-		this.diaInicial = diaInicial;
+		this.diainicial = diaInicial;
 	}
 
 	public void setDiaFinal(LocalDate diaFinal) {
-		this.diaFinal = diaFinal;
+		this.diafinal = diaFinal;
 	}
 
 	public void setHoraInicial(LocalTime hrInicial) {
-		this.horaInicial = hrInicial;
+		this.horainicial = hrInicial;
 	}
 
 	public void setHoraFinal(LocalTime hrFinal) {
-		this.horaFinal = hrFinal;
+		this.horafinal = hrFinal;
 	}
 }

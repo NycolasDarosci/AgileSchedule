@@ -30,16 +30,16 @@ public class Evento {
 	private String descricao;
 
 	@Column(name = "dia_inicial")
-	private LocalDate diaInicial;
+	private LocalDate diainicial;
 
 	@Column(name = "dia_final")
-	private LocalDate diaFinal;
+	private LocalDate diafinal;
 
 	@Column(name = "hora_inicial")
-	private LocalTime horaInicial;
+	private LocalTime horainicial;
 
 	@Column(name = "hora_final")
-	private LocalTime horaFinal;
+	private LocalTime horafinal;
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
@@ -47,10 +47,10 @@ public class Evento {
 
 	public Evento(EventoForm eForm) {
 
-		this.diaInicial = eForm.getDiaInicial();
-		this.diaFinal = eForm.getDiaFinal();
-		this.horaInicial = eForm.getHoraInicial();
-		this.horaFinal = eForm.getHoraFinal();
+		this.diainicial = eForm.getDiaInicial();
+		this.diafinal = eForm.getDiaFinal();
+		this.horainicial = eForm.getHoraInicial();
+		this.horafinal = eForm.getHoraFinal();
 		this.descricao = eForm.getDescricao();
 	}
 
@@ -63,35 +63,35 @@ public class Evento {
 	}
 
 	public LocalDate getDiaInicial() {
-		return diaInicial;
+		return diainicial;
 	}
 
 	public void setDiaInicial(LocalDate diaInicial) {
-		this.diaInicial = diaInicial;
+		this.diainicial = diaInicial;
 	}
 
 	public LocalDate getDiaFinal() {
-		return diaFinal;
+		return diafinal;
 	}
 
 	public void setDiaFinal(LocalDate diaFinal) {
-		this.diaFinal = diaFinal;
+		this.diafinal = diaFinal;
 	}
 
 	public LocalTime getHoraInicial() {
-		return horaInicial;
+		return horainicial;
 	}
 
 	public void setHoraInicial(LocalTime horaInicial) {
-		this.horaInicial = horaInicial;
+		this.horainicial = horaInicial;
 	}
 
 	public LocalTime getHoraFinal() {
-		return horaFinal;
+		return horafinal;
 	}
 
 	public void setHoraFinal(LocalTime horaFinal) {
-		this.horaFinal = horaFinal;
+		this.horafinal = horaFinal;
 	}
 
 	public String getTitulo() {
@@ -135,10 +135,10 @@ public class Evento {
             eventoDTO.setId(evento.id);
             eventoDTO.setTitulo(evento.titulo);
             eventoDTO.setDescricao(evento.descricao);
-            eventoDTO.setDiaInicial(evento.diaInicial);
-            eventoDTO.setDiaFinal(evento.diaFinal);
-            eventoDTO.setHoraInicial(evento.horaInicial);
-            eventoDTO.setHoraFinal(evento.horaFinal);
+            eventoDTO.setDiaInicial(evento.diainicial);
+            eventoDTO.setDiaFinal(evento.diafinal);
+            eventoDTO.setHoraInicial(evento.horainicial);
+            eventoDTO.setHoraFinal(evento.horafinal);
 
             eventosDTO.add(eventoDTO);
         }
