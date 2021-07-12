@@ -57,7 +57,7 @@ xmlns:th="http://www.thymeleaf.org"
                     <h2>Novo Evento</h2>
 
                     <!-- <form onsubmit="Form.submit(event)"> -->
-                   	 <form th:action="@{/register}" method="POST" th:object="${EventoForm}">
+                   	 <form th:action="@{/evento}" method="POST" th:object="${EventoForm}">
                         <div class="input-group">
                             <label for="titulo">
                                 <input type="text" th:field="*{titulo}" name="titulo" id="titulo" placeholder="Título do Evento"/>
@@ -83,13 +83,13 @@ xmlns:th="http://www.thymeleaf.org"
                         <div class="input-group">
                             <label for="horainicial">
                                 <input id="horainicial" name="horainicial" type="text" th:field="*{horainicial}"/>
-                                <small>Neste formato: 00:00:00</small>
+                                <small>Neste formato: 00:00:00:00</small>
                             </label>
                         </div>
                         <div class="input-group">
                             <label for="horafinal">
                                 <input id="horafinal" name="horafinal" type="text" th:field="*{horafinal}"/>
-                                <small>Neste formato: 00:00:00</small>
+                                <small>Neste formato: 00:00:00:00</small>
                             </label>
                         </div>
                         <div class="input-group actions">

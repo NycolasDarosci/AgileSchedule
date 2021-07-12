@@ -31,31 +31,35 @@ public class EventoForm {
 //			throw new ValidationException("Dia final não pode ser anterior ao dia inicial.");
 //		}
 	//}
-	public String getTitulo() {
+	public String gettitulo() {
 		return this.titulo;
 	}
 
-	public String getDescricao() {
+	public String getdescricao() {
 		return descricao;
 	}
 
-	public LocalDate getDiaInicial() {
+	public LocalDate getdiainicial() {
 		return diainicial;
 	}
 
-	public LocalDate getDiaFinal() {
+	public LocalDate getdiafinal() {
 		return diafinal;
 	}
 
-	public LocalTime getHoraInicial() {
+	public LocalTime gethorainicial() {
 		return horainicial;
 	}
 
-	public LocalTime getHoraFinal() {
+	public LocalTime gethorafinal() {
 		return horafinal;
 	}
 
-	public Evento toEvento() {
+	public Evento toevento() {
+		return new Evento(this);
+	}
+
+    public Evento toEvento() {
 		return new Evento(this);
 	}
 }

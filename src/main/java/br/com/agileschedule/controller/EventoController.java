@@ -29,25 +29,6 @@ public class EventoController {
 	@Autowired
 	EventoService eventoService;
 
-	@ModelAttribute("evento")
-    public EventoForm formEvento() {
-        return new EventoForm();
-    }
-
-	@PostMapping
-	public String newEventoController(@ModelAttribute ("evento") EventoForm eventoForm, UriComponentsBuilder builder) throws NotFoundException {
-		
-		//Criando o evento e o retornando em DTO
-		EventoDTO eventoDTO = eventoService.newEventoService(eventoForm);
-
-		//Criando um recurso com o id do evento criado
-		URI uri = builder.path("/eventosss/{id}").buildAndExpand(eventoDTO.getId()).toUri();
-		
-		ResponseEntity.created(uri).body(eventoDTO);
-		return "index";
-	}
-
-
 	@PutMapping("/{id}")
 	@Transactional
 	public ResponseEntity<EventoDTO> updateEventoController
