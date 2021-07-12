@@ -23,7 +23,6 @@ import br.com.agileschedule.service.EventoService;
 import javassist.NotFoundException;
 
 @Controller
-@RequestMapping("/eventosss")
 public class EventoController {
 
 	@Autowired
@@ -34,8 +33,8 @@ public class EventoController {
         return new EventoForm();
     }
 
-	@PostMapping
-	public String newEventoController(@ModelAttribute ("evento") EventoForm eventoForm, UriComponentsBuilder builder) throws NotFoundException {
+	@PostMapping("/evento")
+	public String newEventoController(@ModelAttribute ("Evento") EventoForm eventoForm, UriComponentsBuilder builder) throws NotFoundException {
 		
 		//Criando o evento e o retornando em DTO
 		EventoDTO eventoDTO = eventoService.newEventoService(eventoForm);

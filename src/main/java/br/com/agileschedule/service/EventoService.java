@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import br.com.agileschedule.dto.EventoDTO;
@@ -36,9 +37,9 @@ public class EventoService {
 
 	public EventoDTO newEventoService(EventoForm eventoForm) throws NotFoundException {
 
-		//User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		User user = new User();
-		user.setId(1L);
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		//User user = new User();
+		//user.setId(1L);
 
 		Evento evento = eventoForm.toEvento();
 		//Definindo usuário que criou o evento como o usuário logado
@@ -63,6 +64,7 @@ public class EventoService {
 		if(evento.getUser().equals(user))
 		{
 			//Atualizando o evento com os dados passados no form
+			evento.setTitulo(eventoForm.getTitulo());
 			evento.setDescricao(eventoForm.getDescricao());
 			evento.setDiaInicial(eventoForm.getDiaInicial());
 			evento.setDiaFinal(eventoForm.getDiaFinal());

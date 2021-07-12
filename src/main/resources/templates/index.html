@@ -13,7 +13,7 @@ xmlns:th="http://www.thymeleaf.org"
 
 <body>
 	<nav>
-		<a th:href="@{/https://www.alura.com.br/}" class="textColor"><li>Alura</li></a>
+		<a th:href="@{https://www.alura.com.br/}" class="textColor"><li>Alura</li></a>
 		<a class="textColor" onclick="sair();"><li>Log-out</li></a>
 		<a class="textColor"><li>[[${#request.remoteUser}]]</li></a>
 	</nav>
@@ -51,47 +51,44 @@ xmlns:th="http://www.thymeleaf.org"
         
     </div>
 	
-	
-        
-
-        <div class="modal-overlay">
+	<div class="modal-overlay">
             <div class="modal">
                 <div id="form">
                     <h2>Novo Evento</h2>
 
                     <!-- <form onsubmit="Form.submit(event)"> -->
-                   	 <form th:action="@{/register}" method="POST" th:object="${EventoForm}">
+                   	 <form th:action="@{/evento}" method="POST" th:object="${Evento}">
                         <div class="input-group">
                             <label for="titulo">
-                                <input type="text" th:field="*{titulo}" name="titulo" id="titulo" placeholder="Título do Evento"/>
+                                <input type="text" th:field="*{titulo}" name="titulo" id="titulo" placeholder="Título do Evento">
                             </label>
                         </div>
                         <div class="input-group">
                             <label for="descricao">
-                                <input id="descricao" name="descricao" type="text" th:field="*{descricao}" placeholder="Descrição"/>
+                                <input id="descricao" name="descricao" type="text" th:field="*{descricao}" placeholder="Descrição">
                             </label>
                         </div>
                         <div class="input-group">
-                            <label for="diainicial">
+                            <label for="diaInicial">
                                 <small>Data de início</small>
-                                <input id="diainicial" name="diainicial" type="date" th:field="*{diainicial}"/>
+                                <input id="diaInicial" name="diaInicial" type="date" th:field="*{diaInicial}">
                             </label>
                         </div>
 						<div class="input-group">
-                            <label for="diafinal">
+                            <label for="diaFinal">
                                 <small>Data de fim</small>
-                                <input id="diafinal" name="diafinal" type="date" th:field="*{diafinal}"/>
+                                <input id="diaFinal" name="diaFinal" type="date" th:field="*{diaFinal}">
                             </label>
                         </div>
                         <div class="input-group">
-                            <label for="horainicial">
-                                <input id="horainicial" name="horainicial" type="text" th:field="*{horainicial}"/>
+                            <label for="horaInicial">
+                                <input id="horaInicial" name="horaInicial" type="text" th:field="*{horaInicial}" >
                                 <small>Neste formato: 00:00:00</small>
                             </label>
                         </div>
                         <div class="input-group">
-                            <label for="horafinal">
-                                <input id="horafinal" name="horafinal" type="text" th:field="*{horafinal}"/>
+                            <label for="horaFinal">
+                                <input id="horaFinal" name="horaFinal" type="text" th:field="*{horaFinal}"  >
                                 <small>Neste formato: 00:00:00</small>
                             </label>
                         </div>
@@ -104,6 +101,9 @@ xmlns:th="http://www.thymeleaf.org"
                 </div>
             </div>
         </div>
+        
+
+        
     
     <div>
 		<div>

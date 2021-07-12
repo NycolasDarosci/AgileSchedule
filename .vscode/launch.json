@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch SecurityConfiguration",
+            "request": "launch",
+            "mainClass": "br.com.agileschedule.config.SecurityConfiguration",
+            "projectName": "agileschedule"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-AgilescheduleApplication<agileschedule>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
