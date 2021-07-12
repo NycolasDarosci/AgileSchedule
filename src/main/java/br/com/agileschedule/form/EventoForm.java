@@ -3,7 +3,6 @@ package br.com.agileschedule.form;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import javax.validation.ValidationException;
 import javax.validation.constraints.NotBlank;
 
 import br.com.agileschedule.model.Evento;
