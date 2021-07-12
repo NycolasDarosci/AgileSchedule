@@ -52,7 +52,9 @@ public class Evento {
 		this.horainicial = eForm.getHoraInicial();
 		this.horafinal = eForm.getHoraFinal();
 		this.descricao = eForm.getDescricao();
+		this.titulo = eForm.getTitulo();
 	}
+	public Evento(){}
 
 	public Long getId() {
 		return id;

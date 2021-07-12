@@ -9,38 +9,46 @@
 </head>
 <body>
     <div class="container">
-        <div class="div-block">
-            <img th:src="@{/img/prototipo2.png}"/>
-            <h1>Agile Schedule</h1>
-        </div> 
-        <!-- FORMULARIO DE CADASTRO -->
-        <h2>Cadastro</h2>
-        <hr>
-        <form th:action="@{/cadastro}" method="POST" class="formulario" th:object="${User}">         
-            <div class="input-block">
-                <label for="name">
-              		<input type="text" name="nome" th:field="*{nome}" id="nome" placeholder="Usuário">
-                </label>
-            </div>
-            <div class="input-block">
-                <label for="email">
-                	<input type="email" name="email" th:field="*{email}" id="email" placeholder="Email">
-                </label>
-            </div>
-            <div class="input-block">
-                <label for="senha">
-                	<input type="password" name="senha" th:field="*{senha}" id="senha" placeholder="Senha">
-                </label>
-            </div>
+        <div th:if="not ${cadastrado}">
+            <div class="div-block">
+                <img th:src="@{/img/prototipo2.png}"/>
+                <h1>Agile Schedule</h1>
+            </div> 
+            <!-- FORMULARIO DE CADASTRO -->
+            <h2>Cadastro</h2>
+            <hr>
+            <form th:action="@{/cadastro}" method="POST" class="formulario" th:object="${User}">         
+                <p th:if="${erro}" th:text="${erro}">erro</p>
+                <p th:if="${emailUser}" th:text="${erro}">erro</p>
+                <br>
+                <div class="input-block">
+                    <label for="name">
+                        <input type="text" name="nome" th:field="*{nome}" id="nome" placeholder="Usuário">
+                    </label>
+                </div>
+                <div class="input-block">
+                    <label for="email">
+                        <input type="email" name="email" th:field="*{email}" id="email" placeholder="Email">
+                    </label>
+                </div>
+                <div class="input-block">
+                    <label for="senha">
+                        <input type="password" name="senha" th:field="*{senha}" id="senha" placeholder="Senha">
+                    </label>
+                </div>
 
-            <!-- Botão para criar uma conta-->
-            <button type="submit">Cadastrar</button>
-                      
-        </form>     
-        <footer>
-            <span>Já possui uma conta?</span>  
-            <a class="btn-cadastro" th:href="@{/login}"><button>Logar</button></a>
-        </footer>
+                <!-- Botão para criar uma conta-->
+                <button type="submit">Cadastrar</button>
+                        
+            </form>     
+            <footer>
+                <span>Já possui uma conta?</span>  
+                <a class="btn-cadastro" th:href="@{/login}"><button>Logar</button></a>
+            </footer>
+        </div>
+        <div th:if="${cadastrado}">
+            <h2>Um e-mail de confirmação foi enviado para <h2 th:text="${user.email}"><h2> verifique sua caixa de entrada.</h2>
+        </div>
     </div>
 </body>
 </html>

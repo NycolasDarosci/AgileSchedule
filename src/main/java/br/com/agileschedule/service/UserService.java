@@ -9,10 +9,8 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.security.config.annotation.AlreadyBuiltException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.thymeleaf.exceptions.AlreadyInitializedException;
 
 import br.com.agileschedule.dto.UserDTO;
 import br.com.agileschedule.form.CreateUserForm;
@@ -38,6 +36,9 @@ public class UserService {
 	public UserDTO newUserService(CreateUserForm createUserForm, String url)
 			throws NotFoundException, UnsupportedEncodingException, MessagingException {
 		
+		Optional<User> u = userRepository.findByEmail(createUserForm.getEmail());
+		if(u.isEmpty()) {
+
 		User user = createUserForm.toUser();
 
 		//Defindo o perfil do usuário como um Cliente (padrão)
@@ -53,6 +54,12 @@ public class UserService {
 		enviarEmailVerificacao(user, url);
 
 		return user.toDTO();
+		}
+		if(u.get().isAtivo()) {
+			throw new IllegalArgumentException("Email já existe");
+		} else {
+			throw new IllegalArgumentException("Usuário não verificado");
+		}
 	}
 
 	public void enviarEmailVerificacao(User user, String url) throws UnsupportedEncodingException, MessagingException {
@@ -74,7 +81,7 @@ public class UserService {
 		MimeMessage mimeMessage= jMailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(mimeMessage);
 
-		helper.setFrom("bolsistaestagiario@gmail.com", remetente);
+		helper.setFrom("agilescheduleproject@gmail.com", remetente);
 		helper.setTo(user.getEmail());
 		helper.setSubject(assunto);
 		helper.setText(corpoEmail, true);
@@ -82,16 +89,15 @@ public class UserService {
 		jMailSender.send(mimeMessage);
 	}
 
-	public boolean verificarEmailService(String token) {
+	public void verificarEmailService(String token) {
 		Optional<User> user = userRepository.findByTokenEmail(token);
 		if(user.isEmpty()) {
-			throw new UsernameNotFoundException("Usuario não localizado");
+			throw new UsernameNotFoundException("Token inválido");
 		}
 		if(user.get().getAtivo()) {
-			throw new IllegalStateException("Usuário já verificado");
+			throw new IllegalArgumentException("Usuário já verificado");
 		}
 		user.get().setAtivo(true);
-		return true;
 	}
 	
 	public UserDTO updateUserService(UpdateUserForm updUserForm) throws NotFoundException{

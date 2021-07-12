@@ -66,7 +66,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	      .antMatchers(HttpMethod.GET, "/cadastro").permitAll()
 	      .antMatchers(HttpMethod.GET, "/cadastro/**").permitAll()
 	      .antMatchers(HttpMethod.POST, "/cadastro").permitAll()
-	      .antMatchers(HttpMethod.GET, "/login").permitAll()
+	      .antMatchers(HttpMethod.GET, "/login").not().authenticated()
 	      .antMatchers(HttpMethod.GET, "/login/**").permitAll()
 	      .antMatchers(HttpMethod.POST, "/login").permitAll()
 	      .anyRequest().authenticated()
@@ -79,5 +79,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	  @Override
 	  public void configure(WebSecurity ws) throws Exception {
 		  ws.ignoring().antMatchers("/**.html", "/css/**", "/images/**", "/img/**", "/js/**", "/h2-console/**" ,"/v2/api-docs", "/webjars/**", "/configuration/**", "/swagger-resources/**", "/swagger.json", "/swagger-ui.html");
+	  }
+
+	  public static void main(String[] args) {
+		  BCryptPasswordEncoder bc = new BCryptPasswordEncoder();
+		  String a = bc.encode("1234");
+		  System.out.println(a);
 	  }
 }
