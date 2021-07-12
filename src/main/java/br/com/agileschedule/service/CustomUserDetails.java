@@ -15,8 +15,8 @@ public class CustomUserDetails implements UserDetails {
 	private static final long serialVersionUID = 1L;
 	private User userr;
 
-	public CustomUserDetails(User userr) {
-		this.userr = userr;
+	public CustomUserDetails(User user) {
+		this.userr = user;
 	}
 
 	@Override
