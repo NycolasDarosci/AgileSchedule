@@ -80,26 +80,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	  public void configure(WebSecurity ws) throws Exception {
 		  ws.ignoring().antMatchers("/**.html", "/css/**", "/images/**", "/img/**", "/js/**", "/h2-console/**" ,"/v2/api-docs", "/webjars/**", "/configuration/**", "/swagger-resources/**", "/swagger.json", "/swagger-ui.html");
 	  }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
