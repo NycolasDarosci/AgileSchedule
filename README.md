@@ -5,7 +5,9 @@ Nosso propósito como desenvolvedores foi trazer uma aplicação prática, intui
 entregarmos mais melhorias e novas funções.
 
 Conheça mais sobre nosso projeto no nosso server do Discord: https://discord.gg/9b69GWKnR3
-ou pelo nosso Twitter: https://twitter.com/ScheduleAgile
+Nosso Twitter: https://twitter.com/ScheduleAgile
+Ou ainda se preferir, pode pedir ajuda no nosso suporte pelo email: agilescheduleproject@gmail.com
+
 Fique a vontade para conversar conosco, Você será bem vindo(a)!
 
 Desenvolvedores:
