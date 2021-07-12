@@ -1,6 +1,7 @@
 package br.com.agileschedule.service;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Optional;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -8,7 +9,10 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.config.annotation.AlreadyBuiltException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.exceptions.AlreadyInitializedException;
 
 import br.com.agileschedule.dto.UserDTO;
 import br.com.agileschedule.form.CreateUserForm;
@@ -54,7 +58,7 @@ public class UserService {
 	public void enviarEmailVerificacao(User user, String url) throws UnsupportedEncodingException, MessagingException {
 		String remetente = "Equipe AgileSchedule";
 		String assunto = "Verificar seu registro AgileSchedule";
-		String urlVerificacao = url + "/verificarEmail?codigo=" + user.getTokenEmail();
+		String urlVerificacao = url + "/cadastro/verificarEmail?token=" + user.getTokenEmail();
 		String corpoEmail = user.getNome() + ",</p>";
 		corpoEmail += "<p>Para verificar seu cadastro na Agile Schedule, clique no link abaixo</p>";
 		
@@ -65,7 +69,7 @@ public class UserService {
 		" ou entre em nosso servidor do " +	
 		"<a href=\"https://discord.gg/9b69GWKnR3\">Discord</a></p>";
 		
-		corpoEmail += "<p>Atenciosamente, Equipe AgileSchedule.</p>.";
+		corpoEmail += "<p>Atenciosamente,<br>Equipe AgileSchedule.</p>.";
 
 		MimeMessage mimeMessage= jMailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(mimeMessage);
@@ -76,6 +80,18 @@ public class UserService {
 		helper.setText(corpoEmail, true);
 
 		jMailSender.send(mimeMessage);
+	}
+
+	public boolean verificarEmailService(String token) {
+		Optional<User> user = userRepository.findByTokenEmail(token);
+		if(user.isEmpty()) {
+			throw new UsernameNotFoundException("Usuario não localizado");
+		}
+		if(user.get().getAtivo()) {
+			throw new IllegalStateException("Usuário já verificado");
+		}
+		user.get().setAtivo(true);
+		return true;
 	}
 	
 	public UserDTO updateUserService(UpdateUserForm updUserForm) throws NotFoundException{
