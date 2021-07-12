@@ -3,8 +3,9 @@ package br.com.agileschedule.form;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import javax.validation.ValidationException;
 import javax.validation.constraints.NotBlank;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import br.com.agileschedule.model.Evento;
 
@@ -16,8 +17,10 @@ public class EventoForm {
 	private String descricao;
 
 	@NotBlank
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate diaInicial;
 
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate diaFinal;
 
 	@NotBlank
