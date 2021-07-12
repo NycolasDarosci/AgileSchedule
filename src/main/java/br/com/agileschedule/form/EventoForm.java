@@ -16,14 +16,14 @@ public class EventoForm {
 	private String descricao;
 
 	@NotBlank
-	private LocalDate diainicial;
+	private LocalDate diaInicial;
 
-	private LocalDate diafinal;
+	private LocalDate diaFinal;
 
 	@NotBlank
-	private LocalTime horainicial;
+	private LocalTime horaInicial;
 
-	private LocalTime horafinal;
+	private LocalTime horaFinal;
 
 
 //	public EventoForm() {
@@ -39,20 +39,39 @@ public class EventoForm {
 		return descricao;
 	}
 
-	public LocalDate getdiainicial() {
-		return diainicial;
+	public LocalDate getDiaInicial() {
+		return diaInicial;
 	}
 
-	public LocalDate getdiafinal() {
-		return diafinal;
+	public LocalDate getDiaFinal() {
+		return diaFinal;
 	}
 
-	public LocalTime gethorainicial() {
-		return horainicial;
+	public LocalTime getHoraInicial() {
+		return horaInicial;
 	}
 
-	public LocalTime gethorafinal() {
-		return horafinal;
+	public LocalTime getHoraFinal() {
+		return horaFinal;
+	}
+	
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	public void setDiaInicial(LocalDate diaInicial) {
+		this.diaInicial = diaInicial;
+	}
+	public void setDiaFinal(LocalDate diaFinal) {
+		this.diaFinal = diaFinal;
+	}
+	public void setHoraInicial(LocalTime horaInicial) {
+		this.horaInicial = horaInicial;
+	}
+	public void setHoraFinal(LocalTime horaFinal) {
+		this.horaFinal = horaFinal;
 	}
 
 	public Evento toevento() {

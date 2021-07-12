@@ -94,7 +94,7 @@ public class UserController {
 		return ResponseEntity.ok().build();
 	}
 	
-	@ModelAttribute("EventoForm")
+	@ModelAttribute("Evento")
 	public EventoForm newEventoForm(){
 		return new EventoForm();
 	}

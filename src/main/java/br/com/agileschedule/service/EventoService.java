@@ -64,6 +64,7 @@ public class EventoService {
 		if(evento.getUser().equals(user))
 		{
 			//Atualizando o evento com os dados passados no form
+			evento.setTitulo(eventoForm.getTitulo());
 			evento.setDescricao(eventoForm.getDescricao());
 			evento.setDiaInicial(eventoForm.getDiaInicial());
 			evento.setDiaFinal(eventoForm.getDiaFinal());

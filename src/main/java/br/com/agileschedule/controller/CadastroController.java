@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.agileschedule.config.Utilitario;
+import br.com.agileschedule.dto.UserDTO;
 import br.com.agileschedule.form.CreateUserForm;
 import br.com.agileschedule.service.UserService;
 import javassist.NotFoundException;
@@ -41,19 +42,33 @@ public class CadastroController {
 	
 	@PostMapping
 	public String newUserController
-	(@ModelAttribute ("User") CreateUserForm cUserForm, HttpServletRequest request)
+	(@ModelAttribute ("User") CreateUserForm cUserForm, HttpServletRequest request, Model model)
 			throws NotFoundException, UnsupportedEncodingException, MessagingException {
 		
-		userService.newUserService(cUserForm, Utilitario.getUrlSite(request));
-		return "login";
+		try {
+		UserDTO user = userService.newUserService(cUserForm, Utilitario.getUrlSite(request));
+		model.addAttribute("cadastrado", true);
+		model.addAttribute("user", user);
+		} catch(Exception ex) {
+			model.addAttribute("erro", ex.getMessage());
+			if(ex.getMessage().contains("não verificado")) {
+				model.addAttribute("emailUser", cUserForm.getEmail());
+			}
+		}
+		return "cadastro";
 	}
 
 	@GetMapping("/verificarEmail")
 	@Transactional
 	public String verificarEmailController(
 		@RequestParam(name = "token", required = true) String token, Model model) {
-		
-		boolean verificado = userService.verificarEmailService(token);
+
+		try {
+			userService.verificarEmailService(token);
+			model.addAttribute("respostaValidacao", "Usuário Validado!");
+		} catch(Exception exc) {
+			model.addAttribute("respostaValidacao", exc.getMessage());
+		}
 		return "login";
 	}
 }
