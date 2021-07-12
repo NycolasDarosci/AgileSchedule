@@ -53,7 +53,7 @@ public class UserController {
 		return new ModelAndView("index");
 	}
 	
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/evento", method = RequestMethod.POST)
 	public String newEventoController(@ModelAttribute ("EventoForm")EventoForm eventoForm, UriComponentsBuilder builder) throws NotFoundException {
 		
 		//Criando o evento e o retornando em DTO
@@ -62,8 +62,8 @@ public class UserController {
 		//Criando um recurso com o id do evento criado
 		URI uri = builder.path("/api/{id}").buildAndExpand(eventoDTO.getId()).toUri();
 		
-		ResponseEntity.created(uri).body(eventoDTO);
 		return "index";
+		//ResponseEntity.created(uri).body(eventoDTO);
 	}
 
 

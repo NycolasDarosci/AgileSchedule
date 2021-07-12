@@ -31,11 +31,11 @@ public class EventoForm {
 //			throw new ValidationException("Dia final não pode ser anterior ao dia inicial.");
 //		}
 	//}
-	public String getTitulo() {
+	public String gettitulo() {
 		return this.titulo;
 	}
 
-	public String getDescricao() {
+	public String getdescricao() {
 		return descricao;
 	}
 
@@ -74,7 +74,11 @@ public class EventoForm {
 		this.horaFinal = horaFinal;
 	}
 
-	public Evento toEvento() {
+	public Evento toevento() {
+		return new Evento(this);
+	}
+
+    public Evento toEvento() {
 		return new Evento(this);
 	}
 }
