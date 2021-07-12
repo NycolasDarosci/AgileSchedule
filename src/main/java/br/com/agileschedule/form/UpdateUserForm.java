@@ -1,4 +1,4 @@
-package br.com.agileschedule.api.form;
+package br.com.agileschedule.form;
 
 public class UpdateUserForm {
 

@@ -1,4 +1,4 @@
-package br.com.agileschedule.api.dto;
+package br.com.agileschedule.dto;
 
 public class UserDTO {
 

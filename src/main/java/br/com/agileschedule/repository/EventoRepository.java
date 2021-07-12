@@ -1,10 +1,10 @@
-package br.com.agileschedule.api.repository;
+package br.com.agileschedule.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.agileschedule.api.model.Evento;
+import br.com.agileschedule.model.Evento;
 
 public interface EventoRepository extends JpaRepository<Evento, Long> {
 

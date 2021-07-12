@@ -1,4 +1,4 @@
-package br.com.agileschedule.api.model;
+package br.com.agileschedule.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -13,8 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import br.com.agileschedule.api.dto.EventoDTO;
-import br.com.agileschedule.api.form.EventoForm;
+import br.com.agileschedule.dto.EventoDTO;
+import br.com.agileschedule.form.EventoForm;
 
 @Entity(name = "Evento")
 public class Evento {
@@ -30,16 +30,16 @@ public class Evento {
 	private String descricao;
 
 	@Column(name = "dia_inicial")
-	private LocalDate diainicial;
+	private LocalDate diaInicial;
 
 	@Column(name = "dia_final")
-	private LocalDate diafinal;
+	private LocalDate diaFinal;
 
 	@Column(name = "hora_inicial")
-	private LocalTime horainicial;
+	private LocalTime horaInicial;
 
 	@Column(name = "hora_final")
-	private LocalTime horafinal;
+	private LocalTime horaFinal;
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
@@ -47,10 +47,10 @@ public class Evento {
 
 	public Evento(EventoForm eForm) {
 
-		this.diainicial = eForm.getDiaInicial();
-		this.diafinal = eForm.getDiaFinal();
-		this.horainicial = eForm.getHoraInicial();
-		this.horafinal = eForm.getHoraFinal();
+		this.diaInicial = eForm.getDiaInicial();
+		this.diaFinal = eForm.getDiaFinal();
+		this.horaInicial = eForm.getHoraInicial();
+		this.horaFinal = eForm.getHoraFinal();
 		this.descricao = eForm.getDescricao();
 	}
 
@@ -63,35 +63,35 @@ public class Evento {
 	}
 
 	public LocalDate getDiaInicial() {
-		return diainicial;
+		return diaInicial;
 	}
 
 	public void setDiaInicial(LocalDate diaInicial) {
-		this.diainicial = diaInicial;
+		this.diaInicial = diaInicial;
 	}
 
 	public LocalDate getDiaFinal() {
-		return diafinal;
+		return diaFinal;
 	}
 
 	public void setDiaFinal(LocalDate diaFinal) {
-		this.diafinal = diaFinal;
+		this.diaFinal = diaFinal;
 	}
 
 	public LocalTime getHoraInicial() {
-		return horainicial;
+		return horaInicial;
 	}
 
 	public void setHoraInicial(LocalTime horaInicial) {
-		this.horainicial = horaInicial;
+		this.horaInicial = horaInicial;
 	}
 
 	public LocalTime getHoraFinal() {
-		return horafinal;
+		return horaFinal;
 	}
 
 	public void setHoraFinal(LocalTime horaFinal) {
-		this.horafinal = horaFinal;
+		this.horaFinal = horaFinal;
 	}
 
 	public String getTitulo() {
@@ -135,10 +135,10 @@ public class Evento {
             eventoDTO.setId(evento.id);
             eventoDTO.setTitulo(evento.titulo);
             eventoDTO.setDescricao(evento.descricao);
-            eventoDTO.setDiaInicial(evento.diainicial);
-            eventoDTO.setDiaFinal(evento.diafinal);
-            eventoDTO.setHoraInicial(evento.horainicial);
-            eventoDTO.setHoraFinal(evento.horafinal);
+            eventoDTO.setDiaInicial(evento.diaInicial);
+            eventoDTO.setDiaFinal(evento.diaFinal);
+            eventoDTO.setHoraInicial(evento.horaInicial);
+            eventoDTO.setHoraFinal(evento.horaFinal);
 
             eventosDTO.add(eventoDTO);
         }

@@ -1,4 +1,4 @@
-package br.com.agileschedule.api.config;
+package br.com.agileschedule.config;
 /*
  * package br.com.agileschedule.config;
  * 

@@ -1,4 +1,4 @@
-package br.com.agileschedule.api.model;
+package br.com.agileschedule.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

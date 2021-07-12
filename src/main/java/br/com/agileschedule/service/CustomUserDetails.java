@@ -1,4 +1,4 @@
-package br.com.agileschedule.api.service;
+package br.com.agileschedule.service;
 
 import java.util.Collection;
 
@@ -6,7 +6,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 
-import br.com.agileschedule.api.model.User;
+import br.com.agileschedule.model.User;
 
 
 public class CustomUserDetails implements UserDetails {
@@ -15,8 +15,8 @@ public class CustomUserDetails implements UserDetails {
 	private static final long serialVersionUID = 1L;
 	private User userr;
 
-	public CustomUserDetails(User userr) {
-		this.userr = userr;
+	public CustomUserDetails(User user) {
+		this.userr = user;
 	}
 
 	@Override

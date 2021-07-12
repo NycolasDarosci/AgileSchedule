@@ -1,4 +1,4 @@
-package br.com.agileschedule.api.model;
+package br.com.agileschedule.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ import javax.persistence.OneToMany;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import br.com.agileschedule.api.dto.UserDTO;
+import br.com.agileschedule.dto.UserDTO;
 
 @Entity(name = "User")
 public class User{
@@ -47,7 +47,10 @@ public class User{
 	private List<Evento> eventos = new ArrayList<Evento>();
 
 	@Column(name = "ativo", nullable = false)
-	private boolean ativo = true;
+	private boolean ativo = false;
+
+	@Column(name = "token_email", unique = true, updatable = false)
+	private String tokenEmail;
 
 	public Long getId() {
 		return id;
@@ -69,10 +72,9 @@ public class User{
 		this.email = email;
 	}
 
-	public String setSenha(String senhaa) {
-		// Sempre que uma senha for definida, ela será criptografada.
+	public void setSenha(String senha) {
 		BCryptPasswordEncoder bCrypt = new BCryptPasswordEncoder();
-		return this.senha = bCrypt.encode(senhaa);
+		this.senha = bCrypt.encode(senha);
 	}
 
 	public String getTokenAlura() {
@@ -111,20 +113,21 @@ public class User{
 		return senha;
 	}
 
+	public boolean getAtivo() {
+		return this.ativo;
+	}
+
+
+	public String getTokenEmail() {
+		return this.tokenEmail;
+	}
+
+	public void setTokenEmail(String tokenEmail) {
+		this.tokenEmail = tokenEmail;
+	}
+
 	public boolean isAtivo() {
 		return ativo;
-	}
-	
-	
-
-	public User(String nome, String email, String senha) {
-		super();
-		this.nome = nome;
-		this.email = email;
-		this.senha = senha;
-	}
-
-	public User() {
 	}
 
 	public UserDTO toDTO() {

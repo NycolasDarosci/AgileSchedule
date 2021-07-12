@@ -1,4 +1,4 @@
-package br.com.agileschedule.api.form;
+package br.com.agileschedule.form;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -6,7 +6,7 @@ import java.time.LocalTime;
 import javax.validation.ValidationException;
 import javax.validation.constraints.NotBlank;
 
-import br.com.agileschedule.api.model.Evento;
+import br.com.agileschedule.model.Evento;
 
 public class EventoForm {
 
@@ -16,18 +16,18 @@ public class EventoForm {
 	private String descricao;
 
 	@NotBlank
-	private LocalDate diainicial;
+	private LocalDate diaInicial;
 
-	private LocalDate diafinal;
+	private LocalDate diaFinal;
 
 	@NotBlank
-	private LocalTime horainicial;
+	private LocalTime horaInicial;
 
-	private LocalTime horafinal;
+	private LocalTime horaFinal;
 
 
 	public EventoForm() {
-		if(this.diainicial.isAfter(this.diafinal)) {
+		if(this.diaInicial.isAfter(this.diaFinal)) {
 			throw new ValidationException("Dia final não pode ser anterior ao dia inicial.");
 		}
 	}
@@ -40,19 +40,19 @@ public class EventoForm {
 	}
 
 	public LocalDate getDiaInicial() {
-		return diainicial;
+		return diaInicial;
 	}
 
 	public LocalDate getDiaFinal() {
-		return diafinal;
+		return diaFinal;
 	}
 
 	public LocalTime getHoraInicial() {
-		return horainicial;
+		return horaInicial;
 	}
 
 	public LocalTime getHoraFinal() {
-		return horafinal;
+		return horaFinal;
 	}
 
 	public Evento toEvento() {

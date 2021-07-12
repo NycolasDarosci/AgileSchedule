@@ -1,7 +1,4 @@
-package br.com.agileschedule.api.controller;
-
-import java.net.URI;
-import java.util.List;
+package br.com.agileschedule.controller;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -9,20 +6,17 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
-
-import br.com.agileschedule.api.dto.UserDTO;
-import br.com.agileschedule.api.form.UpdateUserForm;
-import br.com.agileschedule.api.model.Evento;
-import br.com.agileschedule.api.repository.EventoRepository;
-import br.com.agileschedule.api.service.UserService;
+import br.com.agileschedule.dto.UserDTO;
+import br.com.agileschedule.form.UpdateUserForm;
+import br.com.agileschedule.service.UserService;
 import javassist.NotFoundException;
 
 @Controller
@@ -32,15 +26,9 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@Autowired
-	private EventoRepository eventoRepository;
-	
-	
 	@GetMapping
-	public String pageIndex(Model model) {
-		List<Evento> eventoss = eventoRepository.findAll();
-		model.addAttribute("eventoss", eventoss);
-		return "index";
+	public ModelAndView pageIndex() {
+		return new ModelAndView("index");
 	}
 
 

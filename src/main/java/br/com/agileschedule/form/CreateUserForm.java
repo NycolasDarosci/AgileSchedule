@@ -1,11 +1,8 @@
-package br.com.agileschedule.api.form;
+package br.com.agileschedule.form;
 
 import javax.validation.constraints.NotBlank;
 
-import br.com.agileschedule.api.model.User;
-import br.com.agileschedule.api.repository.PerfilRepository;
-import br.com.agileschedule.api.repository.UserRepository;
-import javassist.NotFoundException;
+import br.com.agileschedule.model.User;
 
 public class CreateUserForm {
 
@@ -41,14 +38,12 @@ public class CreateUserForm {
 		this.senha = senha;
 	}
 
-	public User toUser(UserRepository userRepository, PerfilRepository perfilRepository) throws NotFoundException {
-		User user = new User(nome, email, senha);
-		user.getPerfis().add(perfilRepository.findByDescricao("Cliente").get());
-		userRepository.save(user);
+	public User toUser() {
+		User user = new User();
+		user.setNome(this.nome);
+		user.setEmail(this.email);
+		//Senha criptografada no método setSenha
+		user.setSenha(this.senha);
 		return user;
 	}
-
-	
-
-	
 }
