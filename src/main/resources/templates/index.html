@@ -17,6 +17,19 @@ xmlns:th="http://www.thymeleaf.org"
 		<a class="textColor" onclick="sair();"><li>Log-out</li></a>
 		<a class="textColor"><li>[[${#request.remoteUser}]]</li></a>
 	</nav>
+
+    
+	<div id="lista"></div>
+    <form th:action="@{/updateToken}" method="PUT" th:object="${UpdateUserForm}">
+        <div class="input-group">
+            <label for="tokenAlura">
+                <small>Token</small>
+                <input id="tokenAlura" name="tokenAlura" type="text" th:field="*{tokenAlura}" />
+                <button type="submit">Salvar</button>
+            </label>
+        </div>
+    </form>
+
 	<div id='clock'></div>
     
     
@@ -119,12 +132,12 @@ xmlns:th="http://www.thymeleaf.org"
 		</div>
 	</div>
 
-	<div id="lista"></div>
     
 </body>
 	<script th:src="@{/js/evento.js}"></script>
     <script th:src="@{/js/script.js}"></script>
     <script th:src="@{/js/logout.js}"></script>
     <script th:src="@{/js/notificacao.js}"></script>
+    <script th:src="@{/js/token-service.js}"></script>
 	<script th:src="@{/https://unpkg.com/sweetalert/dist/sweetalert.min.js}"></script>
 </html>

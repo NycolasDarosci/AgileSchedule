@@ -38,73 +38,76 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private EventoRepository eventoRepository;
-	
+
 	@Autowired
 	EventoService eventoService;
-	
-	
+
 	@GetMapping
 	public ModelAndView pageIndex(Model model) {
 		eventoss();
 		newEventoForm();
+		newUserForm();
 		return new ModelAndView("index");
 	}
-	
-	@RequestMapping(value = "/evento", method = RequestMethod.POST)
-	public String newEventoController(@ModelAttribute ("EventoForm")EventoForm eventoForm, UriComponentsBuilder builder) throws NotFoundException {
-		
-		//Criando o evento e o retornando em DTO
-		EventoDTO eventoDTO = eventoService.newEventoService(eventoForm);
 
-		//Criando um recurso com o id do evento criado
-		URI uri = builder.path("/api/{id}").buildAndExpand(eventoDTO.getId()).toUri();
-		
-		return "index";
-		//ResponseEntity.created(uri).body(eventoDTO);
+	// @RequestMapping(value = "/updateToken", method = RequestMethod.PUT)
+	@Transactional
+	@PutMapping(value = "/updateToken")
+	public ResponseEntity<UserDTO> updateUserController(@ModelAttribute("UpdateUserForm") UpdateUserForm updUserForm)
+			throws NotFoundException {
+
+		return ResponseEntity.ok(userService.updateUserService(updUserForm));
 	}
 
+	@RequestMapping(value = "/evento", method = RequestMethod.POST)
+	public String newEventoController(@ModelAttribute("EventoForm") EventoForm eventoForm, UriComponentsBuilder builder)
+			throws NotFoundException {
 
-	@PutMapping("/updateUser")
-	@Transactional
-	public ResponseEntity<UserDTO> updateUserController
-	(@RequestBody UpdateUserForm updUserForm) throws NotFoundException {
-		
-		return ResponseEntity.ok(userService.updateUserService(updUserForm));
+		// Criando o evento e o retornando em DTO
+		EventoDTO eventoDTO = eventoService.newEventoService(eventoForm);
+
+		// Criando um recurso com o id do evento criado
+		URI uri = builder.path("/api/{id}").buildAndExpand(eventoDTO.getId()).toUri();
+
+		return "index";
+		// ResponseEntity.created(uri).body(eventoDTO);
 	}
 
 	@PatchMapping("/updateTokenAlura")
 	@Transactional
-	public ResponseEntity<Void> updateTokenAluraController
-	(@RequestBody @Valid UpdateUserForm updUserForm) throws NotFoundException {
+	public ResponseEntity<Void> updateTokenAluraController(@RequestBody @Valid UpdateUserForm updUserForm)
+			throws NotFoundException {
 
 		userService.updateTokenAluraService(updUserForm);
 		return ResponseEntity.ok().build();
 	}
 
-
 	@PatchMapping("/disableUser")
 	@Transactional
-	public ResponseEntity<Void> disableUserController
-	(@RequestParam(required = true) Long idUser) throws NotFoundException {
-		
+	public ResponseEntity<Void> disableUserController(@RequestParam(required = true) Long idUser)
+			throws NotFoundException {
+
 		userService.disableUserService(idUser);
 		return ResponseEntity.ok().build();
 	}
-	
+
 	@ModelAttribute("Evento")
-	public EventoForm newEventoForm(){
+	public EventoForm newEventoForm() {
 		return new EventoForm();
 	}
-	
+
 	@ModelAttribute("eventoss")
-	public List<Evento> eventoss(){
+	public List<Evento> eventoss() {
 		List<Evento> eventos = eventoRepository.findAll();
 		return eventos;
 	}
-		
-		
+
+	@ModelAttribute("UpdateUserForm")
+	private UpdateUserForm newUserForm() {
+		return new UpdateUserForm();
+	}
 
 }
