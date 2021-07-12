@@ -81,12 +81,9 @@ body{
 
 
 /* ========= Buttons ==========*/
- 
-.btn-entrar{
-    margin-top: 0.5rem;
-}
 
-.btn-entrar button{
+button{
+    margin-top: 0.5rem;
     font-weight: 500;
     font-size: 1rem;
     cursor: pointer;
