@@ -1,16 +1,21 @@
 package br.com.agileschedule.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Data
 @Entity
-public class Calender {
+public class Calendar {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
 
 	@Column(name = "diaInicial")

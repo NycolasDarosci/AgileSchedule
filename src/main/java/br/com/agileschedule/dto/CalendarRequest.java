@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Data
-public class CalenderRequest {
+public class CalendarRequest {
 
 	@NotBlank
 	private String description;
