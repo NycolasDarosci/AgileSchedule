@@ -9,6 +9,7 @@ import br.com.agileschedule.DTO.CalendarioDto;
 import br.com.agileschedule.Entity.Calendario;
 import br.com.agileschedule.Form.CalendarioForm;
 
+@Data
 @Component
 public class CalendarioConverter {
 
@@ -18,6 +19,8 @@ public class CalendarioConverter {
 		Dto.setDescricao(calendario.getDescricao());
 		return Dto;
 	}
+
+	
 
 	public List<CalendarioDto> entidadeDto(List<Calendario> calen) {
 		return calen.stream().map(x -> calenDto(x)).collect(Collectors.toList());
