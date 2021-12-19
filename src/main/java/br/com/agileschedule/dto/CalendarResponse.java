@@ -6,7 +6,9 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Data
-public class CalenderResponse {
+public class CalendarResponse {
+
+	private String id;
 
 	private String description;
 
