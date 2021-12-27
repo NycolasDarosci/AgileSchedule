@@ -11,13 +11,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
 
 @Controller
-public class CadastroController {
+public class RegisterController {
 
 	@Autowired
 	private UserRepository userRepository;
@@ -26,7 +25,7 @@ public class CadastroController {
 	private UserService userService;
 
 
-	@PostMapping("/cadastro")
+	@PostMapping("/register")
 	public ResponseEntity<UserResponse> newUser(@RequestBody @Valid UserRequest userRequest, BindingResult bindingResult) {
 		UserResponse userResponse = userService.newUser(userRequest);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("{id}")

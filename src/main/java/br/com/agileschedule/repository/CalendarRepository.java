@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface CalendarRepository extends JpaRepository<Calendar, String>{
 
-    Optional<Calendar> findById(String id);
+    Optional<Calendar> findById(Long id);
 
 
 }

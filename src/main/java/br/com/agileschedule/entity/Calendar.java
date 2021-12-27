@@ -1,9 +1,6 @@
 package br.com.agileschedule.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -19,16 +16,16 @@ public class Calendar {
 	private Long id;
 
 	@Column(name = "diaInicial")
-	private LocalDate initialDay;
+	private String initialDay;
 
 	@Column(name = "diaFinal")
-	private LocalDate finalDay;
+	private String finalDay;
 
 	@Column(name = "hrInicial")
-	private LocalTime initialHour;
+	private String initialHour;
 
 	@Column(name = "hrFinal")
-	private LocalTime finalHour;
+	private String finalHour;
 
 	@Column(name = "descricao")
 	private String description;

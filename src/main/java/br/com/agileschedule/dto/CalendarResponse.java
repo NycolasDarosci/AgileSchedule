@@ -8,19 +8,17 @@ import java.time.LocalTime;
 @Data
 public class CalendarResponse {
 
-	private String id;
+	private Long id;
 
 	private String description;
 
-	private LocalDate initialDay;
+	private String initialDay;
 
-	private LocalDate finalDay;
+	private String finalDay;
 
-	private LocalTime initialHour;
+	private String initialHour;
 
-	private LocalTime finalHour;
-
-
+	private String finalHour;
 
 
 }

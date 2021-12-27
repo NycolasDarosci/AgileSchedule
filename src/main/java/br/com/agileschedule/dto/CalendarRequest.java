@@ -3,22 +3,24 @@ package br.com.agileschedule.dto;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDate;
-import java.time.LocalTime;
 
 @Data
 public class CalendarRequest {
 
-	@NotBlank
-	private String description;
+    @NotBlank
+    private String description;
 
-	private LocalDate initialDay;
+    @NotBlank
+    private String initialDay;
 
-	private LocalDate finalDay;
+    @NotBlank
+    private String finalDay;
 
-	private LocalTime initialHour;
+    @NotBlank
+    private String initialHour;
 
-	private LocalTime finalHour;
+    @NotBlank
+    private String finalHour;
 
 
 }
